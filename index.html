@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106214589', 'ym');
+
+    ym(106214589, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106214589" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Замер | Проверка качества воздуха в Санкт-Петербурге</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Стили формы Formspree */
+        #formspree__modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        #formspree__modal.visible {
+            display: flex;
+        }
+        #formspree__widget {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .fs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+        .fs-close-btn {
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            color: #94a3b8;
+        }
+        .fs-close-btn:hover { color: #0f172a; }
+        .fs-form-group {
+            margin-bottom: 1.25rem;
+        }
+        .fs-form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #334155;
+            font-size: 0.875rem;
+        }
+        .fs-form-group textarea, .fs-form-group input {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            background: #f8fafc;
+            transition: border-color 0.2s;
+        }
+        .fs-form-group textarea:focus, .fs-form-group input:focus {
+            outline: none;
+            border-color: #10b981;
+            background: white;
+        }
+        .fs-form-group.invalid input, .fs-form-group.invalid textarea {
+            border-color: #ef4444;
+        }
+        .fs-error-message {
+            display: none;
+            color: #ef4444;
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+        .fs-form-group.invalid .fs-error-message {
+            display: block;
+        }
+        .fs-submit-btn {
+            width: 100%;
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            margin-top: 1rem;
+        }
+        .fs-submit-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+        .fs-submit-btn:disabled {
+            background: #cbd5e1;
+        }
+        #fs_result {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+        .fs-success { color: #059669; font-weight: 600; }
+        .fs-error { color: #ef4444; }
+
+                /* Дополнительные стили для плавности ползунка */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #16a34a;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #16a34a;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            border: none;
+        }
+        /* Плавные переходы для блоков */
+        .transition-all-custom {
+            transition: all 0.3s ease-in-out;
+        }
+        /* Стили для модального окна */
+        #orderModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="text-slate-800 bg-white">
+
+    <!-- Навигация -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <span class="font-black text-2xl tracking-tighter text-slate-900">AIR<span class="text-emerald-500 underline decoration-2 underline-offset-4">ЗАМЕР (Замер воздуха)</span></span>
+                </div>
+                <div class="hidden lg:flex space-x-10 font-semibold text-slate-500">
+                    <a href="#params" class="hover:text-emerald-600 transition">Параметры</a>
+                    <a href="#report" class="hover:text-emerald-600 transition">Пример отчета</a>
+                    <a href="#tariffs" class="hover:text-emerald-600 transition">Тарифы</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="tel:+79952376995" class="hidden sm:block font-bold text-slate-900 hover:text-emerald-600 transition underline underline-offset-2 decoration-emerald-200">8 (995) 237-69-95</a>
+                    <button onclick="toggleModal(true)" class="bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-600 transition shadow-lg shadow-slate-200">
+                        Вызвать замерщика
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Главный экран -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-900">
+    <!-- Фоновое изображение на весь экран -->
+    <div class="absolute inset-0 z-0">
+        <img src="image.jpg" alt="Фон" class="w-full h-full object-cover">
+        <!-- Градиентный оверлей: темный слева/снизу для читаемости текста -->
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/20 lg:bg-gradient-to-r lg:from-slate-900 lg:via-slate-900/70 lg:to-transparent"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10 pt-20 pb-12">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left">
+                <!-- Локация -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 sm:mb-8 text-[10px] sm:text-xs font-bold tracking-widest text-emerald-400 uppercase bg-emerald-500/10 border border-emerald-500/20 rounded-lg backdrop-blur-md">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    Санкт-Петербург
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-white mb-6 sm:mb-8 leading-[1.1] tracking-tight">
+                    Чистый воздух — <br><span class="text-emerald-400">здоровая семья.</span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-slate-200 mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                    Невидимые яды в квартире могут быть причиной аллергии и усталости. Мы найдем их с помощью профессионального оборудования.
+                </p>
+
+                <!-- Кнопки -->
+                <div class="flex flex-col sm:flex-row gap-4 mb-12 sm:mb-16">
+                    <button onclick="toggleModal(true)" class="bg-emerald-500 text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-emerald-600 shadow-xl shadow-emerald-500/20 transition-all transform hover:-translate-y-1">
+                        Проверить воздух
+                    </button>
+                    <a href="#report" class="bg-white/10 backdrop-blur-md text-white px-10 py-5 rounded-2xl text-xl font-bold border border-white/20 hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                        Смотреть отчет 
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Характеристики -->
+                <div class="flex justify-center lg:justify-start gap-6 sm:gap-8 items-center opacity-90">
+                    <div class="text-center lg:text-left">
+                        <span class="block text-xl sm:text-2xl font-bold text-white tracking-tighter">0.1°C</span>
+                        <span class="text-[9px] sm:text-xs text-emerald-400 font-bold uppercase tracking-wider">точность</span>
+                    </div>
+                    <div class="h-8 w-px bg-white/20"></div>
+                    <div class="text-center lg:text-left">
+                        <span class="block text-xl sm:text-2xl font-bold text-white tracking-tighter">24ч</span>
+                        <span class="text-[9px] sm:text-xs text-emerald-400 font-bold uppercase tracking-wider">выезд</span>
+                    </div>
+                    <div class="h-8 w-px bg-white/20"></div>
+                    <div class="text-center lg:text-left">
+                        <span class="block text-xl sm:text-2xl font-bold text-white tracking-tighter">100%</span>
+                        <span class="text-[9px] sm:text-xs text-emerald-400 font-bold uppercase tracking-wider">гарантия</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая часть (скрыта на мобильных, так как картинка теперь в фоне) -->
+            <div class="hidden lg:block relative">
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-xs transform -rotate-2">
+                    <div class="flex items-center gap-3 mb-2 text-emerald-500 font-bold uppercase text-[10px] tracking-widest">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"></path></svg>
+                        Факт дня
+                    </div>
+                    <p class="text-sm text-slate-600 font-medium">В 80% новостроек СПб уровень CO2 превышает норму в 1.5 раза через 2 часа сна.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Индикатор скролла -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </div>
+</section>
+<!-- Секция видео AirZamer (Full Width & Mobile Friendly) -->
+<section style="
+    width: 100%; 
+    padding: 40px 0; 
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+    background-color: #0f172a; /* Темный фон для лучшего акцента на видео */
+    overflow: hidden;
+">
+    <div style="width: 100%; margin: 0 auto;">
+        
+        <!-- Заголовок блока -->
+        <div style="text-align: center; margin-bottom: 30px; padding: 0 20px;">
+            <h2 style="
+                font-size: clamp(24px, 5vw, 42px); 
+                font-weight: 700; 
+                color: #ffffff; 
+                margin-bottom: 12px;
+                line-height: 1.2;
+            ">
+                Почему именно лаборатория AirZamer (Замер воздуха)?
+            </h2>
+            <div style="width: 60px; height: 4px; background: #3b82f6; margin: 0 auto; border-radius: 10px;"></div>
+        </div>
+
+        <!-- Контейнер с видео на всю ширину -->
+        <div style="
+            width: 100%;
+            max-width: 100vw;
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        ">
+            <div style="
+                position: relative; 
+                width: 100%; 
+                padding-bottom: 56.25%; /* Соотношение 16:9 */
+                height: 0; 
+            ">
+                <video 
+                    controls 
+                    preload="metadata" 
+                    playsinline
+                    style="
+                        position: absolute; 
+                        top: 0; 
+                        left: 0; 
+                        width: 100%; 
+                        height: 100%; 
+                        object-fit: contain;
+                    "
+                >
+                    <source src="airzamer01.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает встроенные видео.
+                </video>
+            </div>
+        </div>
+
+        <!-- Краткое описание под видео (опционально) -->
+        <div style="
+            text-align: center; 
+            padding: 25px 20px 0; 
+            color: #94a3b8; 
+            font-size: 16px; 
+            max-width: 800px; 
+            margin: 0 auto;
+        ">
+            Узнайте о наших стандартах качества и инновационных методах анализа воздуха.
+        </div>
+
+    </div>
+</section>
+<!-- Конец секции -->
+
+
+<!-- Контейнер калькулятора-->
+<div class="bg-gray-50 py-12 px-4 md:px-8 font-sans">
+    
+    <!-- Главный контейнер с ограничением ширины и центрированием mx-auto -->
+    <div class="max-w-5xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row relative">
+        
+        <!-- Левая колонка: Настройки (Форма расчета) -->
+        <div class="w-full lg:w-3/5 p-6 md:p-10 border-b lg:border-b-0 lg:border-r border-gray-100">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Настройте свой эко-аудит</h2>
+                <p class="text-gray-500">Отметьте, что вас беспокоит, и мы подберем оптимальный тариф на airzamer.ru</p>
+            </div>
+
+            <form id="calcForm" class="space-y-8">
+                
+                <!-- Блок 1: Количество комнат -->
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label class="text-lg font-semibold text-gray-800">Сколько комнат нужно проверить?</label>
+                        <span id="roomsValue" class="text-2xl font-bold text-green-600">1</span>
+                    </div>
+                    <input type="range" id="roomsSlider" min="1" max="6" value="1" 
+                           class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer outline-none accent-green-600">
+                    <div class="flex justify-between text-xs text-gray-400 px-1">
+                        <span>1 комн.</span>
+                        <span>2 комн.</span>
+                        <span>3-6 комн.</span>
+                    </div>
+                </div>
+
+                <!-- Блок 2: Выбор параметров (Галочки) -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Что именно будем проверять?</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <!-- Базовые параметры -->
+                        <label class="flex items-start space-x-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" checked disabled class="mt-1 w-5 h-5 text-green-600 rounded border-gray-300">
+                            <span class="text-sm text-gray-700 leading-tight">Качество вентиляции (CO2) <span class="block text-xs text-gray-400 mt-1">Входит всегда</span></span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" checked disabled class="mt-1 w-5 h-5 text-green-600 rounded border-gray-300">
+                            <span class="text-sm text-gray-700 leading-tight">Уровень формальдегида <span class="block text-xs text-gray-400 mt-1">Входит всегда</span></span>
+                        </label>
+
+                        <!-- Пыль -->
+                        <div class="col-span-1 md:col-span-2 mt-2">
+                            <p class="text-sm font-medium text-gray-600 mb-2">Замер пыли (взвешенные частицы):</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox" class="param-checkbox w-5 h-5 text-green-600 rounded border-gray-300" data-tier="1">
+                                    <span class="text-sm text-gray-700">2,5 микрон (PM2.5)</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox" class="param-checkbox w-5 h-5 text-green-600 rounded border-gray-300" data-tier="2">
+                                    <span class="text-sm text-gray-700">10 микрон (PM10)</span>
+                                </label>
+                                <label class="flex items-center space-x-3 cursor-pointer">
+                                    <input type="checkbox" class="param-checkbox w-5 h-5 text-green-600 rounded border-gray-300" data-tier="3">
+                                    <span class="text-sm text-gray-700">1 микрон (PM1.0)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Расширенные параметры -->
+                        <label class="flex items-start space-x-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" class="param-checkbox mt-1 w-5 h-5 text-green-600 rounded border-gray-300" data-tier="2">
+                            <span class="text-sm text-gray-700 leading-tight">Проверка ЛОС <span class="block text-xs text-gray-400 mt-1">Летучие органические соединения</span></span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" class="param-checkbox mt-1 w-5 h-5 text-green-600 rounded border-gray-300" data-tier="2">
+                            <span class="text-sm text-gray-700 leading-tight">Замер радиации</span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" class="param-checkbox mt-1 w-5 h-5 text-green-600 rounded border-gray-300" data-tier="3">
+                            <span class="text-sm text-gray-700 leading-tight">Экспресс-тест воды <span class="block text-xs text-gray-400 mt-1">По 15 параметрам</span></span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" class="param-checkbox mt-1 w-5 h-5 text-green-600 rounded border-gray-300" data-tier="3">
+                            <span class="text-sm text-gray-700 leading-tight">Тест посуды на свинец <span class="block text-xs text-gray-400 mt-1">До 3 предметов</span></span>
+                        </label>
+                        <label class="flex items-start space-x-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors md:col-span-2">
+                            <input type="checkbox" class="param-checkbox mt-1 w-5 h-5 text-green-600 rounded border-gray-300" data-tier="3">
+                            <span class="text-sm text-gray-700 leading-tight">Замеры шума и освещенности <span class="block text-xs text-gray-400 mt-1">Рабочих мест, игровой зоны</span></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Блок 3: Локация -->
+                <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5">
+                    <div class="flex items-center space-x-3 mb-3">
+                        <span class="text-2xl">🎁</span>
+                        <h3 class="text-lg font-bold text-blue-900">Акция «Ближе к центру»</h3>
+                    </div>
+                    <p class="text-sm text-blue-800 mb-4">Скидка 550 ₽ на любой аудит, если объект находится в историческом центре.</p>
+                    
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Ваш район?</label>
+                    <select id="locationSelect" class="w-full p-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 outline-none bg-white">
+                        <option value="other">Другой район СПб / Область</option>
+                        <option value="center">Центральный район</option>
+                        <option value="center">Адмиралтейский район</option>
+                        <option value="center">Василеостровский район</option>
+                        <option value="center">Петроградский район</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <!-- Правая колонка: Результат -->
+        <div class="w-full lg:w-2/5 bg-gray-900 text-white p-6 md:p-10 flex flex-col justify-center relative min-h-[400px]">
+            
+            <div class="absolute top-0 right-0 p-4 opacity-10">
+                <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.43 4 16.05 4 12C4 7.95 7.05 4.57 11 4.07V19.93ZM13 4.07C16.95 4.57 20 7.95 20 12C20 16.05 16.95 19.43 13 19.93V4.07Z"/></svg>
+            </div>
+
+            <div class="relative z-10">
+                <h3 class="text-sm font-bold tracking-widest text-green-400 uppercase mb-2">Рекомендуем вам</h3>
+                <h2 id="resultTitle" class="text-3xl font-bold mb-4">Тариф 1</h2>
+                
+                <div class="mb-6">
+                    <div id="discountBlock" class="hidden mb-1">
+                        <span class="text-gray-400 line-through text-lg" id="oldPrice">3990 ₽</span>
+                        <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded ml-2">-550 ₽ бонус</span>
+                    </div>
+                    <div class="flex items-baseline">
+                        <span id="resultPrice" class="text-5xl font-extrabold text-white">3990</span>
+                        <span class="text-xl text-gray-400 ml-2">₽</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4 mb-8">
+                    <p class="text-sm text-gray-300 font-medium">В этот тариф включено:</p>
+                    <ul id="resultFeatures" class="space-y-3 text-sm text-gray-300"></ul>
+                </div>
+
+                <button id="openModalBtn" class="w-full bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-6 rounded-xl transition-colors shadow-lg shadow-green-500/30 text-lg">
+                    Оставить заявку
+                </button>
+                <p class="text-center text-xs text-gray-500 mt-4">Или свяжитесь с нами для индивидуального расчета</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно (позиционирование fixed) -->
+    <div id="orderModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; align-items: center; justify-content: center;">
+        <div class="bg-white p-8 rounded-3xl max-w-md w-full mx-4 shadow-2xl relative text-gray-800">
+            <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Оформление заявки</h2>
+            
+            <form action="https://formspree.io/f/movgnzzk" method="POST" class="space-y-4" id="orderForm">
+                <input type="hidden" name="Тариф" id="hiddenTariff">
+                <input type="hidden" name="Количество комнат" id="hiddenRooms">
+                <input type="hidden" name="Итоговая цена" id="hiddenPrice">
+                <input type="hidden" name="Район" id="hiddenLocation">
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Ваше имя</label>
+                    <input type="text" name="name" required class="w-full p-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Телефон</label>
+                    <input type="tel" name="phone" required class="w-full p-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" name="_replyto" required class="w-full p-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500">
+                </div>
+                
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                
+                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl transition-colors mt-4">
+                    Подтвердить и отправить
+                </button>
+                <p class="text-[10px] text-gray-400 text-center px-4">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности airzamer.ru</p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const tariffs = {
+            1: { title: "Тариф 1 (Базовый)", price: 3990, features: ["Эко аудит 1 комнаты", "Проверка вентиляции (CO2)", "Уровень формальдегида", "Замер пыли 2,5 микрон", "Краткий отчет"] },
+            2: { title: "Тариф 2 (Комплекс)", price: 5990, features: ["Эко аудит 2 комнат", "Вентиляция (CO2)", "Формальдегид и ЛОС", "Пыль 2,5 и 10 микрон", "Замер радиации", "Полный отчет"] },
+            3: { title: "Тариф 3 (Премиум)", price: 8990, features: ["Эко аудит до 6 комнат", "Вентиляция, формальдегид и ЛОС", "Пыль 1, 2,5 и 10 микрон", "Радиация", "Тест воды и посуды", "Шум и освещенность", "Расширенный отчет"] }
+        };
+
+        const discountAmount = 550;
+
+        const roomsSlider = document.getElementById('roomsSlider');
+        const roomsValue = document.getElementById('roomsValue');
+        const checkboxes = document.querySelectorAll('.param-checkbox');
+        const locationSelect = document.getElementById('locationSelect');
+        const resultTitle = document.getElementById('resultTitle');
+        const resultPrice = document.getElementById('resultPrice');
+        const oldPrice = document.getElementById('oldPrice');
+        const discountBlock = document.getElementById('discountBlock');
+        const resultFeatures = document.getElementById('resultFeatures');
+
+        const modal = document.getElementById('orderModal');
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const hiddenTariff = document.getElementById('hiddenTariff');
+        const hiddenRooms = document.getElementById('hiddenRooms');
+        const hiddenPrice = document.getElementById('hiddenPrice');
+        const hiddenLocation = document.getElementById('hiddenLocation');
+
+        function calculateTariff() {
+            let recommendedTier = 1;
+            const rooms = parseInt(roomsSlider.value);
+            roomsValue.textContent = rooms;
+            
+            if (rooms === 2) recommendedTier = Math.max(recommendedTier, 2);
+            if (rooms >= 3) recommendedTier = Math.max(recommendedTier, 3);
+
+            checkboxes.forEach(cb => {
+                if (cb.checked) recommendedTier = Math.max(recommendedTier, parseInt(cb.dataset.tier));
+            });
+
+            const isCenter = locationSelect.value === 'center';
+            const selectedData = tariffs[recommendedTier];
+            let finalPrice = selectedData.price;
+
+            if (isCenter) {
+                finalPrice -= discountAmount;
+                discountBlock.classList.remove('hidden');
+                oldPrice.textContent = selectedData.price + ' ₽';
+            } else {
+                discountBlock.classList.add('hidden');
+            }
+
+            resultTitle.textContent = selectedData.title;
+            resultPrice.textContent = finalPrice;
+
+            hiddenTariff.value = selectedData.title;
+            hiddenRooms.value = rooms;
+            hiddenPrice.value = finalPrice + ' ₽';
+            hiddenLocation.value = locationSelect.options[locationSelect.selectedIndex].text;
+
+            resultFeatures.innerHTML = '';
+            selectedData.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start';
+                li.innerHTML = `<svg class="w-5 h-5 text-green-400 mr-2 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>${feature}</span>`;
+                resultFeatures.appendChild(li);
+            });
+        }
+
+        openModalBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
+        closeModalBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+        window.addEventListener('click', (event) => { if (event.target == modal) modal.style.display = 'none'; });
+
+        roomsSlider.addEventListener('input', calculateTariff);
+        locationSelect.addEventListener('change', calculateTariff);
+        checkboxes.forEach(cb => cb.addEventListener('change', calculateTariff));
+
+        calculateTariff();
+    })();
+</script>
+
+
+
+
+
+
+
+
+    <!-- Секция Параметры (обновленная) -->
+    <section id="params" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-black text-slate-900 mb-6">Что именно мы измеряем?</h2>
+                    <p class="text-lg text-slate-500 leading-relaxed">Наши датчики фиксируют то, что невозможно увидеть глазом, но легко почувствовать организмом.</p>
+                </div>
+                <div class="text-emerald-600 font-bold flex items-center gap-2">
+                    В соответствии с СанПиН и ВОЗ 
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-4 block">☣️</span>
+                    <h3 class="text-xl font-bold mb-3">Формальдегид</h3>
+                    <p class="text-slate-500 text-sm">Ядовитый газ от ДСП и пластика. Мы измерим его концентрацию с точностью до мкг.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-4 block">💨</span>
+                    <h3 class="text-xl font-bold mb-3">Летучие вещества</h3>
+                    <p class="text-slate-500 text-sm">Испарения моющих средств, духов и красок. Причина ваших частых головных болей.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-4 block">🌫️</span>
+                    <h3 class="text-xl font-bold mb-3">Пыль 1 / 2.5 / 10 микрон</h3>
+                    <p class="text-slate-500 text-sm">Мельчайшие частицы сажи и резины от КАД и дорог, которые оседают в легких навсегда.</p>
+                </div>
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 card-hover">
+                    <span class="text-3xl mb-4 block">⚡</span>
+                    <h3 class="text-xl font-bold mb-3">Радиация</h3>
+                    <p class="text-slate-500 text-sm">Фоновое излучение от бетона, гранитных столешниц и плитки. Безопасно ли ваше жилье?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Секция Пример Отчета (Новая) -->
+    <section id="report" class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative group">
+                    <!-- Пример PDF отчета -->
+                    <div class="bg-white rounded-3xl p-8 md:p-12 text-slate-900 shadow-2xl transform transition duration-500 group-hover:scale-[1.02] relative z-10">
+                        <div class="flex justify-between items-start mb-10 border-b border-slate-100 pb-6">
+                            <div>
+                                <h4 class="text-2xl font-black tracking-tighter">AIR<span class="text-emerald-500">ЗАМЕР</span></h4>
+                                <p class="text-[10px] text-slate-400 uppercase font-bold tracking-widest mt-1">Сертифицированный аудит</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-slate-400">ОТЧЕТ №429-Б</p>
+                                <p class="text-xs font-bold">СПб, ул. Оптиков, д. 45</p>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-8">
+                            <section>
+                                <h5 class="text-xs font-black text-emerald-600 uppercase mb-4 tracking-widest">Детская комната</h5>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-slate-50 p-4 rounded-xl border-l-4 border-emerald-500">
+                                        <p class="text-[10px] text-slate-400 font-bold uppercase mb-1">Уровень CO2</p>
+                                        <p class="text-xl font-bold">540 ppm</p>
+                                        <p class="text-[10px] text-emerald-600 font-bold uppercase">В норме</p>
+                                    </div>
+                                    <div class="bg-red-50 p-4 rounded-xl border-l-4 border-red-500">
+                                        <p class="text-[10px] text-slate-400 font-bold uppercase mb-1">PM 2.5</p>
+                                        <p class="text-xl font-bold">42 μg/m³</p>
+                                        <p class="text-[10px] text-red-600 font-bold uppercase">Превышение x3</p>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <section class="bg-emerald-50 p-6 rounded-2xl">
+                                <h5 class="text-sm font-bold text-slate-900 mb-2 flex items-center gap-2">
+                                    <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M11 3a1 1 0 10-2 0v1h2V3zM7 8a1 1 0 012-2h2a1 1 0 110 2h-2a1 1 0 01-2-2zM3 13a1 1 0 012-2h10a1 1 0 110 2H5a1 1 0 01-2-2zM3 16a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"></path></svg>
+                                    Рекомендации эксперта:
+                                </h5>
+                                <p class="text-xs text-slate-600 leading-relaxed italic">
+                                    "Высокая концентрация пыли вызвана отсутствием фильтров на клапанах КИВ-125. <br>
+                                    <strong class="text-slate-900 underline decoration-emerald-200">Рекомендуется:</strong> Установка бризера с фильтром класса H11..."
+                                </p>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- Тень/слой сзади -->
+                    <div class="absolute inset-0 bg-emerald-500 rounded-3xl translate-x-4 translate-y-4 -z-10 opacity-30"></div>
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl font-black mb-8 leading-tight">Результат, который <br><span class="text-emerald-400">можно изучить</span></h2>
+                    <p class="text-lg text-slate-400 mb-10 leading-relaxed">
+                        Мы не просто говорим: «у вас всё нормально». Мы предоставляем полноценный документ, который станет базой для улучшения вашего дома.
+                    </p>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Никаких догадок</h4>
+                                <p class="text-slate-400 text-sm">Все данные на основе поверенных профессиональных приборов.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v4m0 0L9 11m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xl mb-1">Готовый PDF-файл</h4>
+                                <p class="text-slate-400 text-sm">Удобно смотреть на телефоне или отправить мастеру по вентиляции.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Секция: Пример реального отчета (на основе анализа AZ-2026/01/09) -->
+<section id="report" class="report-section">
+    <div class="report-container">
+        <!-- Заголовок блока -->
+        <div class="report-header">
+            <span class="report-badge">Кейс: Таврическая ул</span>
+            <h2 class="report-title">Ваш результат — экспертный отчет на <span class="text-accent">2+ страницах</span></h2>
+            <p class="report-subtitle">Вы получаете глубокий анализ каждой комнаты с конкретными цифрами, графиками и пошаговым планом действий.</p>
+        </div>
+
+        <div class="report-content-grid">
+            <!-- Визуальная часть: Макеты страниц PDF -->
+            <div class="report-visual">
+                <div class="pages-stack">
+                    <!-- Страница 1: Таблица замеров -->
+                    <div class="pdf-page page-one">
+                        <div class="pdf-header">
+                            <div class="pdf-logo">Air-Замер</div>
+                            <div class="pdf-id">№ AZ-2026/01/09</div>
+                        </div>
+                        <div class="pdf-body">
+                            <div class="pdf-table-mock">
+                                <div class="table-row head"><span>Параметр</span><span>Факт</span></div>
+                                <div class="table-row"><span>CO2 (ppm)</span><span class="val-red">1240</span></div>
+                                <div class="table-row"><span>PM2.5</span><span class="val-red">42</span></div>
+                                <div class="table-row"><span>HCHO (предметы мебели)</span><span class="val-orange">0.12</span></div>
+                                <div class="table-row"><span>Радиация</span><span class="val-green">0.14</span></div>
+                            </div>
+                            <div class="pdf-chart-mock"></div>
+                        </div>
+                        <div class="pdf-footer">Страница 1: Сводная таблица</div>
+                    </div>
+
+                    <!-- Страница 2: Рекомендации -->
+                    <div class="pdf-page page-two">
+                        <div class="pdf-header">
+                            <div class="pdf-title-small">План оздоровления</div>
+                        </div>
+                        <div class="pdf-body">
+                            <div class="recommendation-item">
+                                <div class="dot"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="recommendation-item">
+                                <div class="dot"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="pdf-stamped-area">
+                                <div class="stamp">ПРОВЕРЕНО</div>
+                            </div>
+                        </div>
+                        <div class="pdf-footer">Страница 12: Рекомендации</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Текстовая часть: Описание преимуществ -->
+            <div class="report-info">
+                <ul class="benefit-list">
+                    <li>
+                        <div class="icon-box">✓</div>
+                        <div>
+                            <h4>Детальный хим-анализ</h4>
+                            <p>Уровни формальдегида (HCHO) в мебели и летучих веществ от отделочных материалов.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-box">✓</div>
+                        <div>
+                            <h4>Карта загрязнения пылью</h4>
+                            <p>Замеры концентрации PM2.5 и PM10 — главных триггеров аллергии и астмы.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-box">✓</div>
+                        <div>
+                            <h4>Проверка безопасности</h4>
+                            <p>Контроль радиационного фона и уровня освещенности рабочих мест ваших детей.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-box">✓</div>
+                        <div>
+                            <h4>Персональный план</h4>
+                            <p>Конкретные советы по выбору очистителей, бризеров и изменению привычек проветривания.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="tavricheskjaya2_obezlichennaya.pdf" class="download-button" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Скачать образец отчета (PDF)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        :root {
+            --accent-color: #10b981; /* Emerald 500 */
+            --dark-color: #0f172a;   /* Slate 900 */
+            --text-gray: #64748b;    /* Slate 500 */
+            --bg-light: #f8fafc;     /* Slate 50 */
+        }
+
+        .report-section {
+            padding: 100px 20px;
+            background-color: var(--bg-light);
+            font-family: sans-serif;
+            color: var(--dark-color);
+        }
+
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .report-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .report-badge {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .report-title {
+            font-size: 42px;
+            font-weight: 900;
+            margin: 20px 0;
+            line-height: 1.1;
+        }
+
+        .text-accent { color: var(--accent-color); }
+
+        .report-subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .report-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        /* Анимация страниц */
+        .report-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .pages-stack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pdf-page {
+            position: absolute;
+            background: white;
+            width: 300px;
+            height: 420px;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.4s ease;
+        }
+
+        .page-one {
+            z-index: 2;
+            left: 0;
+            top: 0;
+            transform: rotate(-3deg);
+        }
+
+        .page-two {
+            z-index: 1;
+            left: 80px;
+            top: 50px;
+            transform: rotate(4deg);
+        }
+
+        .pages-stack:hover .page-one { transform: rotate(0deg) scale(1.02); }
+        .pages-stack:hover .page-two { transform: rotate(0deg) translate(20px, 10px); }
+
+        /* Элементы внутри PDF */
+        .pdf-header { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 20px; }
+        .pdf-logo { font-size: 10px; font-weight: bold; color: var(--accent-color); }
+        .pdf-id { font-size: 8px; color: #999; }
+        
+        .pdf-table-mock { display: flex; flex-direction: column; gap: 8px; }
+        .table-row { display: flex; justify-content: space-between; font-size: 11px; padding: 4px 0; border-bottom: 1px solid #f1f5f9; }
+        .table-row.head { font-weight: bold; color: #94a3b8; }
+        .val-red { color: #ef4444; font-weight: bold; }
+        .val-orange { color: #f59e0b; font-weight: bold; }
+        .val-green { color: #10b981; font-weight: bold; }
+
+        .pdf-chart-mock { height: 60px; background: linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 100%); margin-top: 20px; border-radius: 4px; position: relative; }
+        .pdf-chart-mock::after { content: ''; position: absolute; bottom: 10px; left: 10%; width: 80%; height: 2px; background: var(--accent-color); box-shadow: 0 -15px 0 #10b981, 0 -30px 0 #10b981; opacity: 0.3; }
+
+        .pdf-footer { position: absolute; bottom: 20px; left: 0; width: 100%; text-align: center; font-size: 9px; color: #cbd5e1; }
+
+        .pdf-stamped-area { margin-top: 40px; display: flex; justify-content: flex-end; }
+        .stamp { border: 2px solid #10b981; color: #10b981; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: bold; transform: rotate(-15deg); opacity: 0.5; }
+
+        /* Список преимуществ */
+        .benefit-list { list-style: none; padding: 0; margin-bottom: 40px; }
+        .benefit-list li { display: flex; gap: 15px; margin-bottom: 25px; }
+        .icon-box { background: var(--accent-color); color: white; min-width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; margin-top: 4px; }
+        .benefit-list h4 { margin: 0 0 5px 0; font-size: 18px; font-weight: bold; }
+        .benefit-list p { margin: 0; font-size: 14px; color: var(--text-gray); line-height: 1.4; }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--dark-color);
+            color: white;
+            padding: 18px 32px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .download-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        @media (max-width: 968px) {
+            .report-content-grid { grid-template-columns: 1fr; gap: 40px; }
+            .report-visual { height: 350px; display: flex; justify-content: center; }
+            .pdf-page { width: 240px; height: 330px; }
+            .report-title { font-size: 32px; }
+        }
+    </style>
+</section>
+
+    <!-- Секция Тарифы (ОБНОВЛЕННАЯ С 3 ТАРИФАМИ) -->
+    <section id="tariffs" class="py-24 px-4 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black text-slate-900 mb-4">Сколько это стоит?</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto">Выбирайте вариант под ваши задачи. От быстрой проверки съемной квартиры до глубокого аудита перед рождением ребенка.</p>
+
+               
+</div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
+                
+                <!-- Тариф 1: Базовый (Лоукост) -->
+                <div class="bg-white p-8 rounded-[2.5rem] border border-slate-200 flex flex-col hover:shadow-xl transition-all h-full">
+                    <div class="mb-6">
+                        <span class="inline-block bg-slate-100 text-slate-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Старт</span>
+                        <h3 class="text-2xl font-black mb-1 text-slate-900">Базовый</h3>
+                        <p class="text-slate-400 text-sm font-medium">Микроклимат и вентиляция</p>
+                    </div>
+                    <div class="mb-8 border-b border-slate-100 pb-8">
+                        <span class="text-4xl font-black text-slate-900">3 490 ₽</span>
+                        <span class="text-slate-400 text-sm block mt-1">Эко аудит 1 комнаты</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка качества вентиляции (CO2)</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка уровня формальдегида</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Замер пыли (Определение концентрации взвешенных частиц 2,5 микрон)</span>
+                        </li>
+                        
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Краткий отчет о замерах</span>
+                        </li>
+                        
+                    </ul>
+                    <button onclick="toggleModal(true)" class="w-full py-4 border-2 border-slate-900 rounded-2xl font-bold text-slate-900 hover:bg-slate-900 hover:text-white transition-colors">
+                        Выбрать базу
+                    </button>
+                </div>
+                
+                <!-- Тариф 2: Оптимальный (Хит продаж) -->
+                <div class="bg-slate-900 p-8 md:p-10 rounded-[2.5rem] text-white flex flex-col relative overflow-hidden transform lg:scale-105 shadow-2xl z-10">
+                    <div class="absolute top-0 right-0 bg-emerald-500 text-slate-900 px-10 py-2 font-black text-xs uppercase tracking-widest rotate-45 translate-x-12 translate-y-6 shadow-lg">ХИТ</div>
+                    <div class="mb-6">
+                        <span class="inline-block bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 border border-emerald-500/30">Рекомендуем</span>
+                        <h3 class="text-3xl font-black mb-1 text-emerald-400">Здоровый Дом</h3>
+                        <p class="text-slate-400 text-sm font-medium">Комплексная проверка безопасности</p>
+                    </div>
+                    <div class="mb-8 border-b border-slate-800 pb-8">
+                        <span class="text-5xl font-black text-white">5 990 ₽</span>
+                         <span class="text-slate-500 text-sm block mt-1">лучшая цена за комплекс</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3 text-slate-200 font-bold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500 text-slate-900 rounded-full flex items-center justify-center font-black mt-0.5">!</div>
+                            <span>Все параметры "Базового"</span>
+                            </li>
+                        <li class="flex items-start gap-3 text-white font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Эко аудит 2 комнат</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка качества вентиляции (CO2)</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка уровня формальдегида (мебель, отделочные материалы)</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка ЛОС (летучие органические соединения)</span>
+                        </li>
+                        </li>
+                         <li class="flex items-start gap-3 text-white font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Замер пыли (Определение концентрации взвешенных частиц 2,5 микрон, 10 микрон)</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-white font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Замер радиации</span>
+                        </li>
+                         
+                         <li class="flex items-start gap-3 text-white font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Полный отчет о замерах с рекомендациями и памяткой клиента</span>
+                        </li>
+                        
+                    </ul>
+                    <button onclick="toggleModal(true)" class="w-full py-5 bg-emerald-500 text-slate-900 rounded-2xl font-black hover:bg-emerald-400 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-all transform hover:-translate-y-1">
+                        Заказать комплекс
+                    </button>
+                </div>
+
+                <!-- Тариф 3: Максимальный (VIP) -->
+                <div class="bg-white p-8 rounded-[2.5rem] border border-emerald-100 flex flex-col hover:shadow-xl transition-all h-full relative">
+                     <div class="mb-6">
+                        <span class="inline-block bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4">Премиум</span>
+                        <h3 class="text-2xl font-black mb-1 text-slate-900">Эко-Паспорт</h3>
+                        <p class="text-slate-400 text-sm font-medium">Глубокий аудит и биохакинг</p>
+                    </div>
+                    <div class="mb-8 border-b border-slate-100 pb-8">
+                        <span class="text-4xl font-black text-slate-900">8 990 ₽</span>
+                        <span class="text-slate-400 text-sm block mt-1">полная экспертиза</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                         <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Всё из тарифа "Здоровый Дом"</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Эко аудит до 6 комнат</span>
+                        </li>
+                       <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка качества вентиляции (CO2)</span>
+                        </li>
+                         <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка уровня формальдегида</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Проверка ЛОС (летучие органические соединения)</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Замер пыли (Определение концентрации взвешенных частиц 1 микрон, 2,5 микрон, 10 микрон)</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Замер радиации</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Экспресс-тест питьевой воды по 15 параметрам</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Экспресс-тест 3 предметов посуды на выделение свинца</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Замеры шума и освещенности рабочих мест, игровой зоны</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-slate-600 font-semibold text-sm">
+                            <div class="w-5 h-5 min-w-[1.25rem] bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mt-0.5">✓</div>
+                            <span>Расширенный отчет о замерах с рекомендациями и памяткой клиента</span>
+                        </li>
+                    </ul>
+                    <button onclick="toggleModal(true)" class="w-full py-4 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-2xl font-bold hover:bg-emerald-100 transition-colors">
+                        Выбрать VIP
+                    </button>
+                </div>
+
+            </div>
+        </div>
+ <!-- Маленькая врезка с акцией airzamer.ru -->
+<div class="max-w-md mx-auto my-6">
+    <div class="bg-blue-50 border border-blue-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div class="flex items-start space-x-4">
+            <!-- Иконка-подарок -->
+            <div class="bg-white p-2 rounded-xl shadow-sm shrink-0">
+                <span class="text-2xl leading-none">🎁</span>
+            </div>
+            
+            <!-- Текст акции -->
+            <div class="flex-1">
+                <h4 class="text-blue-900 font-bold text-lg mb-1 leading-tight">
+                    Акция «Ближе к центру»
+                </h4>
+                <p class="text-blue-800 text-sm leading-snug">
+                    Скидка <span class="font-bold text-blue-900 text-base">550 ₽</span> на любой аудит, если объект находится в историческом центре.
+                </p>
+                
+                <!-- Маленький пояснительный текст -->
+                <div class="mt-2 flex items-center text-[11px] text-blue-500 uppercase tracking-wider font-semibold">
+                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                    </svg>
+                    Участвуют районы:  Центральный, Адмиралтейский, Петроградский, Василеостровский
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    </section>
+
+    
+
+
+  <!-- НОВАЯ СЕКЦИЯ: С АВИТО -->
+    <section id="reviews" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <!-- Имитация лого Авито или просто цветной блок -->
+                        <div class="flex -space-x-1">
+                            <div class="w-6 h-6 rounded-full bg-red-500"></div>
+                            <div class="w-6 h-6 rounded-full bg-blue-500"></div>
+                            <div class="w-6 h-6 rounded-full bg-green-500"></div>
+                            <div class="w-6 h-6 rounded-full bg-yellow-400"></div>
+                        </div>
+                        <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Проверенные отзывы</span>
+                    </div>
+                    <h2 class="text-4xl font-black text-slate-900">Что говорят клиенты на Авито</h2>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                    <span class="text-5xl font-black text-slate-900">5,0</span>
+                    <div class="flex flex-col">
+                        <div class="flex text-[#ffaa00] text-xl">★★★★★</div>
+                        <span class="text-xs font-medium text-slate-400">48 оценок</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Отзыв 1 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold">
+                                А
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Анна С.</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">12 янв</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Экологический паспорт квартиры</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Очень переживала перед рождением ребенка, так как в квартире был запах после ремонта. Специалист приехал вовремя, всё подробно объяснил. Нашли превышение по формальдегиду в детской (от нового шкафа). Теперь знаем, что делать!
+                    </p>
+                    <!-- Имитация фото в отзыве -->
+                    <div class="flex gap-2 mt-auto pt-4 border-t border-slate-50">
+                        <div class="w-16 h-16 bg-slate-100 rounded-lg overflow-hidden">
+                             <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover opacity-80" alt="Фото отзыва">
+                        </div>
+                        <div class="w-16 h-16 bg-slate-100 rounded-lg overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=100&q=80" class="w-full h-full object-cover opacity-80" alt="Фото отзыва">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
+                                М
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Максим</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">28 дек</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Замер воздуха (Комплекс)</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Оперативно. Специалист установил зашкаливающий CO2 при закрытых окнах спустя пару часов после проветривания. Понял, почему голова болела по утрам. Получил пдфку с рекомендациями по бризеру. Спасибо за профессионализм!
+                    </p>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 font-bold">
+                                Е
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Евгений К.</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">15 мар</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Анализ воздуха на фенол</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Заказывал проверку перед покупкой квартиры. Продавец уверял, что ремонт свежий и качественный. Прибор показал превышение по ЛОС, о чем дали документ. Сбил цену на квартиру на 100к аргументированно. Услуга окупилась многократно.
+                    </p>
+                </div>
+
+                <!-- Отзыв 4 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold">
+                                С
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Сергей В.</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">19 янв</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Экспертиза новостройки</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Вызывал проверить квартиру в Мурино, смущал странный запах после ремонта от застройщика. Прибор показал превышение по формальдегиду в 3 раза (оказалось, дешевый линолеум). С вашим официальным актом застройщик согласился заменить покрытие. Спасибо, реально сберегли здоровье!
+                    </p>
+                </div>
+
+                <!-- Отзыв 5 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold">
+                                Е
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight"> Елена Прекрасная</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">9 фев</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Замер пыли и аллергенов</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Снимаем квартиру на Лиговском, ребенок постоянно чихал. Думали аллергия на кота, врачи руками разводили. Оказалось, из окон летит мелкодисперсная сажа с дороги (PM2.5 зашкаливал). Мастер посоветовал конкретный бризер, хозяйка согласилась поставить в счет аренды. Кашель прошел через неделю.
+                    </p>
+                </div>
+
+                <!-- Отзыв 6 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold">
+                                Д
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Дмитрий (Офис)</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">9 июл</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Аудит офиса</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Заказывали проверку в опен-спейс. Сотрудники жаловались на вялость к обеду. Замер показал CO2 под 2000 ppm уже к 12 дня! Оказалось, приточная вентиляция была выключена ради экономии. Исправили настройки — работоспособность выросла. Рекомендую для юрлиц, оплатили по безналу без проблем.
+                    </p>
+                </div>
+
+                <!-- Отзыв 7 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold">
+                                О
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Ольга</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">11 окт</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Комплексная проверка</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Всё чётко. Мастер приехал вовремя, надел бахилы. Проверяли вторичку перед покупкой на радиацию и аммиак (предыдущие жильцы много курили). Всё оказалось в пределах нормы, теперь покупаю квартиру спокойно. Денег своих услуга стоит однозначно.
+                    </p>
+                </div>
+
+
+                <!-- Отзыв 8 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 font-bold">
+                                И
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Игорь К.</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">19 окт</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Подготовка детской</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Жена беременна, готовим комнату. Думали, у нас всё идеально, но спеицаист нашел влажность всего 15%  при норме 40-60%. Из-за этого слизистые пересыхали. Купили мойку воздуха по совету рекомендаций, дышать стало реально легче, даже сон улучшился.
+                    </p>
+                </div>
+
+            <!-- Отзыв 9 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-lime-100 flex items-center justify-center text-lime-600 font-bold">
+                                Т
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Татьяна</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">29 окт</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Поиск причины головных болей</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Просыпалась с «чугунной» головой каждое утро. Грешила на давление или подушку. Замерщик объяснил, что мы вдвоем «надышиваем» в маленькой спальне критический уровень углекислого газа за 3 часа. Показал на приборе динамику. Теперь спим с приоткрытым микро проветриванием, головные боли ушли.
+                    </p>
+                </div>
+
+            <!-- Отзыв 10 -->
+                <div class="bg-white p-6 rounded-2xl avito-card flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 font-bold">
+                                А
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 leading-tight">Алексей 78</h4>
+                                <div class="flex text-[#ffaa00] text-sm mt-0.5">★★★★★</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-slate-400 font-medium">26 ноя </span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-xs text-slate-400 font-medium block mb-1">Сделка состоялась:</span>
+                        <span class="text-sm font-semibold text-slate-700 bg-slate-100 px-2 py-1 rounded inline-block">Проверка на радон</span>
+                    </div>
+                    <p class="text-slate-800 text-[15px] leading-relaxed mb-4 flex-grow">
+                        Живу на первом этаже старого фонда, начитался про радон из подвала. Мастер успокоил, фон в норме, даже ниже чем на улице. Заодно бонусом проверили воду — оказалась жестковата, будем ставить фильтр. Понравилось, что не навязывали купить какие-то приборы, просто дали сухие цифры и факты.
+                    </p>
+                </div>
+
+            </div>
+
+            <!--div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold rounded-xl transition-all group">
+                    Читать все 48 отзывов
+                    <svg class="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div-->
+        </div>
+    </section>
+
+
+
+    <!-- Секция FAQ (Дополнительная) -->
+    <section class="py-24 bg-white px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-black text-center mb-12">Вопросы и ответы</h2>
+            <div class="space-y-4">
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Как подготовиться к замеру?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Для точных данных на летучие вещества и формальдегид рекомендуется закрыть окна за 2-3 часа до визита специалиста. Это позволит накопить реальную концентрацию веществ, которыми вы дышите в обычном режиме.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Ваши приборы сертифицированы?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Да, мы используем только профессиональное оборудование, проходящее регулярную калибровку. Точность наших сенсоров на CO2 и PM2.5 соответствует промышленным стандартам.</p>
+                </details>
+                 <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Как я пойму, что цифры в отчете — правда, а не придуманные данные?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Вы видите все замеры в реальном времени прямо на экранах приборов во время визита специалиста. В итоговый PDF-отчет заносятся именно эти показатели, подкрепленные фотографиями приборов в вашем интерьере.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Поможет ли ваш замер, если у ребенка аллергия неясного происхождения?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Да, это одна из самых частых причин обращения. Мы замеряем концентрацию мелкодисперсной пыли (PM2.5) — это микроскопические частицы, которые проникают глубоко в легкие и кровь. Также мы проверяем наличие формальдегида, который часто является скрытым триггером аллергических реакций.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Что мне делать с результатами отчета, если показатели будут плохими?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Мы не оставляем вас наедине с проблемой. В отчете прописаны конкретные шаги. Если "фонит" шкаф — мы укажем какой; если не работает вентиляция — посоветуем модель бризера; если сухой воздух — рассчитаем нужную мощность увлажнителя.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Не опасно ли ваше оборудование для детей или домашних животных?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Абсолютно безопасно. Приборы работают по принципу забора воздуха или измерения естественных полей (радиация, электромагнитное излучение). Они ничего не излучают и не используют химикаты.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Вы проверяете плесень и грибок?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Мы замеряем косвенные признаки, способствующие их росту: влажность, температуру и наличие определенных летучих органических соединений. Если в квартире есть условия для роста плесени, мы обязательно это зафиксируем и дадим рекомендации по осушению или вентиляции.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Могу ли я заказать замер в офис или на производство?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Да, мы работаем не только с жилыми помещениями, но и с офисами. Качество воздуха напрямую влияет на продуктивность сотрудников и количество больничных. Для юридических лиц возможна оплата по счету с НДС.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        В какой срок я получу PDF-отчет? 
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Предварительные результаты вы узнаете сразу. Полный, оформленный PDF-отчет с графиками и пошаговыми рекомендациями эксперта придет вам на почту или в мессенджер в течение 24 часов после замера.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Что делать, если замер покажет норму по всем параметрам? 
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Это лучший вариант! Вы получите официальное подтверждение того, что ваш дом безопасен. Это дает спокойствие за здоровье семьи и является весомым аргументом, если вы в будущем решите продать или сдать квартиру.</p>
+                </details>
+                <details class="group p-6 rounded-2xl bg-slate-50 open:bg-white open:shadow-xl transition-all">
+                    <summary class="list-none font-bold text-lg flex justify-between items-center cursor-pointer">
+                        Нужно ли мне покупать ваши фильтры или очистители после замера?
+                        <span class="text-emerald-500 transition-transform group-open:rotate-180">↓</span>
+                    </summary>
+                    <p class="mt-4 text-slate-500 text-sm leading-relaxed">Мы — независимая лаборатория мониторинга, а не магазин бытовой техники. Наша цель — объективная правда. Мы порекомендуем технические характеристики приборов, которые вам помогут, но выбирать бренд и место покупки вы будете сами.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал (обновленный) -->
+    <footer class="bg-slate-900 text-white py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-12 border-b border-slate-800 pb-12">
+                <div class="max-w-xs">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                        </div>
+                        <span class="font-black text-xl tracking-tighter uppercase">AIR<span class="text-emerald-500">ЗАМЕР</span></span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed">Профессиональный аудит домашней среды в Санкт-Петербурге. Защищаем здоровье каждой семьи с 2018 года.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-12">
+                    <div>
+                        <h5 class="font-bold mb-4 text-emerald-400 uppercase text-xs tracking-widest">Меню</h5>
+                        <ul class="text-sm space-y-2 text-slate-400">
+                            <li><a href="#params" class="hover:text-white transition">Параметры</a></li>
+                            <li><a href="#report" class="hover:text-white transition">Пример отчета</a></li>
+                            <li><a href="#tariffs" class="hover:text-white transition">Тарифы</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold mb-4 text-emerald-400 uppercase text-xs tracking-widest">Контакты</h5>
+                        <ul class="text-sm space-y-2 text-slate-400">
+                            <li><a href="tel:+79952376995" class="hover:text-white transition">8 (995) 237-69-95</a></li>
+                            <li>г. Санкт-Петербург, Новоизмайловский пр. 46К2
+                        
+                            </li>
+                            <li><a href="https://gidroizmat.ru" target="_blank" rel="noopener noreferrer">Гидроизоляция в Санкт-Петербурге</a>
+</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-xs font-bold uppercase tracking-widest">
+                <p>© 2026 AIRZAMER.RU (Замер воздуха, англ.) — ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Formspree Popup Widget -->
+    <div id="formspree__modal">
+        <div id="formspree__widget"> 
+            <div class="fs-header">
+                Быстрый заказ замера
+                <button onclick="toggleModal(false)" class="fs-close-btn" aria-label="Закрыть форму">
+                    &times;
+                </button>
+            </div>
+            <div class="fs-body"> 
+                <form id="fs_form" action="https://formspree.io/f/movgnzzk" method="POST" novalidate>
+                    <div class="fs-form-group" data-name="Заказ">
+                        <label for="fs_interest">Ваш запрос или адрес</label>
+                        <textarea
+                            name="Заказ"
+                            id="fs_interest"
+                            placeholder="Например: Замер тарифа Максимум, метро Пионерская"
+                            rows="4"
+                            required
+                        ></textarea>
+                        <div class="fs-error-message">Пожалуйста, опишите ваш запрос.</div>
+                    </div>
+                    <div class="fs-form-group" data-name="Контакт">
+                        <label for="fs_contact">Телефон</label>
+                        <input
+                            type="text"
+                            name="Контакт"
+                            id="fs_contact"
+                            placeholder="+7 (XXX) XXX-XX-XX"
+                            required
+                        />
+                        <div class="fs-error-message">Укажите контактный номер.</div>
+                    </div>
+                    <div class="fs-form-group">
+                        <label for="fs_email">Email</label>
+                        <input
+                            type="email"
+                            name="_replyto"
+                            id="fs_email"
+                            placeholder="example@mail.ru"
+                            required
+                        />
+                    </div>
+                    <input type="hidden" name="_subject" value="Новый заказ с AirZamer.ru" />
+                    <button type="submit" id="fs_submit_btn" class="fs-submit-btn">
+                        Отправить заявку
+                    </button>
+                    <p id="fs_result" class="text-slate-400 italic">Нажмите "Отправить", мы перезвоним через 5 минут.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('formspree__modal');
+        const form = document.getElementById('fs_form');
+        const result = document.getElementById('fs_result');
+        const submitBtn = document.getElementById('fs_submit_btn');
+
+        function toggleModal(show) {
+            if (show) {
+                modal.classList.add('visible');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.remove('visible');
+                document.body.style.overflow = 'auto';
+                form.reset();
+                resetFormState();
+            }
+        }
+
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) toggleModal(false);
+        });
+
+        function resetFormState() {
+            form.querySelectorAll('.fs-form-group').forEach(group => {
+                group.classList.remove('invalid');
+            });
+            result.textContent = 'Нажмите "Отправить", мы перезвоним через 5 минут.';
+            result.className = 'text-slate-400 italic';
+        }
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            let isValid = true;
+            const fields = form.querySelectorAll('[required]');
+            
+            fields.forEach(field => {
+                const group = field.closest('.fs-form-group');
+                if (!field.value.trim()) {
+                    group.classList.add('invalid');
+                    isValid = false;
+                } else {
+                    group.classList.remove('invalid');
+                }
+            });
+
+            if (!isValid) {
+                result.textContent = 'Заполните обязательные поля.';
+                result.className = 'fs-error';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            result.textContent = 'Отправляем...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    result.textContent = 'Спасибо! Заявка принята. Ожидайте звонка.';
+                    result.className = 'fs-success';
+                    form.reset();
+                    setTimeout(() => toggleModal(false), 3000); 
+                } else {
+                    result.textContent = 'Ошибка. Попробуйте снова.';
+                    result.className = 'fs-error';
+                }
+            } catch (error) {
+                result.textContent = 'Сетевая ошибка.';
+                result.className = 'fs-error';
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
