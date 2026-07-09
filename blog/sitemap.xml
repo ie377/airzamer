@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://airzamer.ru/blog/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url>
+<loc>https://airzamer.ru/blog/</loc>
+</url>
+<url>
+<loc>https://airzamer.ru/blog/kontakty.html</loc>
+<lastmod>2026-07-09T17:34:19+03:00</lastmod>
+</url>
+<url>
+<loc>https://airzamer.ru/blog/zapah-novogo-remonta-pochemu-aromat-svezhey-kvartiry-v-novostroykah-spb-toksichen.html</loc>
+<lastmod>2026-07-09T18:56:59+03:00</lastmod>
+<image:image>
+<image:loc>https://airzamer.ru/blog/media/posts/3/zapah-novoi-kvartity.jpg</image:loc>
+<image:title><![CDATA[Запах «нового ремонта»: почему аромат свежей квартиры в новостройках СПб токсичен]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://airzamer.ru/blog/media/posts/3/pribor_na_okne.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://airzamer.ru/blog/media/posts/3/detskaya.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://airzamer.ru/blog/media/posts/3/vozduh_novostroiki_spb.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://airzamer.ru/blog/media/posts/3/sotrudnik_keis.jpg</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+</urlset>
