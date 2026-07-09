@@ -97,27 +97,27 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/index.html",
         "type": "file",
-        "md5": "cd9545aaec04e87a9888baedabedc89f"
+        "md5": "f4c36e38b349727a7b870083783d3e08"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "e766970f5b14e854da08aedcff3cf00c"
+        "md5": "ea1438109671876cb142f006ed473236"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "fa8d6f0761bab7168be9e02c2df280ad"
+        "md5": "ba87820a7e3d67cb317f6c9d51b8102b"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "2f42fa6e93871d012bf8d7594e57f147"
+        "md5": "b3e4e43af96cc253ca897a436041596c"
     },
     {
         "path": "kontakty.html",
         "type": "file",
-        "md5": "30e97fdcd26752a33e2af602e0e994a5"
+        "md5": "22f1523c88e4c5b9f5f641fe41274507"
     },
     {
         "path": "media",
@@ -128,6 +128,41 @@
         "path": "media/posts",
         "type": "directory",
         "md5": false
+    },
+    {
+        "path": "media/posts/2",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/2/airzamer_banner_image.jpg",
+        "type": "file",
+        "md5": "b1a646fa6f9bc47397c861d86a480822"
+    },
+    {
+        "path": "media/posts/2/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/2/responsive/airzamer_banner_image-md.jpg",
+        "type": "file",
+        "md5": "92a1f477c2c251231d6ab8f8cac94d4a"
+    },
+    {
+        "path": "/media/posts/2/responsive/airzamer_banner_image-sm.jpg",
+        "type": "file",
+        "md5": "99291e88e2e190edcc5905b92d81506e"
+    },
+    {
+        "path": "/media/posts/2/responsive/airzamer_banner_image-xl.jpg",
+        "type": "file",
+        "md5": "510ee1a09d8ad8ca6e77fb38f16d750c"
+    },
+    {
+        "path": "/media/posts/2/responsive/airzamer_banner_image-xs.jpg",
+        "type": "file",
+        "md5": "541ad5ad6d14cd41896dd0ddc7163562"
     },
     {
         "path": "media/posts/3",
@@ -307,7 +342,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "b034e600fe603855cfade6bd07f4fb3d"
+        "md5": "a854bf33bbf0334edb5ad11e43fba5ae"
     },
     {
         "path": "sitemap.xsl",
@@ -337,6 +372,6 @@
     {
         "path": "zapah-novogo-remonta-pochemu-aromat-svezhey-kvartiry-v-novostroykah-spb-toksichen.html",
         "type": "file",
-        "md5": "d3ee37774cec8f317bf3cec6f61a42a0"
+        "md5": "adc974c6da827cb3b58160f7f032249b"
     }
 ]

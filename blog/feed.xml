@@ -3,7 +3,7 @@
     <title>airzamer.ru</title>
     <link href="https://airzamer.ru/blog/feed.xml" rel="self" />
     <link href="https://airzamer.ru/blog" />
-    <updated>2026-07-09T18:56:59+03:00</updated>
+    <updated>2026-07-09T19:09:29+03:00</updated>
     <author>
         <name>Чем вы дышите? Эко аудит в Санкт-Петербурге с подробными отчетами</name>
     </author>
@@ -173,15 +173,18 @@
         </author>
         <link href="https://airzamer.ru/blog/kontakty.html"/>
         <id>https://airzamer.ru/blog/kontakty.html</id>
+        <media:content url="https://airzamer.ru/blog/media/posts/2/airzamer_banner_image.jpg" medium="image" />
 
         <updated>2026-07-09T17:19:48+03:00</updated>
             <summary>
                 <![CDATA[
+                        <img src="https://airzamer.ru/blog/media/posts/2/airzamer_banner_image.jpg" alt="" />
                     Airzmer - дочерний проект компании ООО ГИДРОИЗМАТ (ИНН 7810585248) (995) 237-69-95 gidroizmat@gmail.com&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
+                    <p><img src="https://airzamer.ru/blog/media/posts/2/airzamer_banner_image.jpg" class="type:primaryImage" alt="" /></p>
                 <p>Airzmer - дочерний проект компании ООО ГИДРОИЗМАТ (ИНН 7810585248)</p>
 <p><a href="tel:+79952376995">(995) 237-69-95</a></p>
 <p>gidroizmat@gmail.com</p>
