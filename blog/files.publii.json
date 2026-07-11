@@ -97,27 +97,27 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/index.html",
         "type": "file",
-        "md5": "6f54ca82e5324a0b236b1123f9eb7a0b"
+        "md5": "0735da3c054f9ef85d4c7022ef12ef87"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "ea1438109671876cb142f006ed473236"
+        "md5": "c365d4122fe610be6d8024547a48c940"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "ba87820a7e3d67cb317f6c9d51b8102b"
+        "md5": "8b79434fbe98c8da8b93f154721489f4"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "1e41d4066473c4539142458701914bd7"
+        "md5": "272c78535474407dfc0ebf502641f67c"
     },
     {
         "path": "kontakty.html",
         "type": "file",
-        "md5": "d9687f6c4ea74b59aea70b3fb08ea877"
+        "md5": "458cc1156e4a225a8a5947c5199f8433"
     },
     {
         "path": "media",
@@ -342,7 +342,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "a854bf33bbf0334edb5ad11e43fba5ae"
+        "md5": "ed6d5eaf3b12f1589994206d77640d77"
     },
     {
         "path": "sitemap.xsl",
