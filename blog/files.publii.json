@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "8eba09ae8bff85381c4bf709d6b5d8ce"
+        "md5": "d26aaafd4f31ddcbccba653ba18f12ce"
     },
     {
         "path": "assets",
@@ -97,27 +97,27 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/index.html",
         "type": "file",
-        "md5": "0735da3c054f9ef85d4c7022ef12ef87"
+        "md5": "f08307d18d3f53615646480154b283f5"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "c365d4122fe610be6d8024547a48c940"
+        "md5": "eb2bfe59ae15a79c47e0a0eec25e61f7"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "8b79434fbe98c8da8b93f154721489f4"
+        "md5": "96f6dc82cc643b3c1324bbe9308bc4f2"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "272c78535474407dfc0ebf502641f67c"
+        "md5": "896113ba8ac9285229d1f5772e34800d"
     },
     {
         "path": "kontakty.html",
         "type": "file",
-        "md5": "458cc1156e4a225a8a5947c5199f8433"
+        "md5": "2b2d7c6344dc4a5bc5e7628012518eab"
     },
     {
         "path": "media",
@@ -300,6 +300,91 @@
         "md5": "0d4ede63f45521875fe759fbcca9d37c"
     },
     {
+        "path": "media/posts/4",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/4/3_shaga_k_luchshemu_vozduhu.jpg",
+        "type": "file",
+        "md5": "1868195a7efcaf96be211f021430be3b"
+    },
+    {
+        "path": "/media/posts/4/infografika_co2.jpg",
+        "type": "file",
+        "md5": "036daa7bfede57b0ac7147c412783ea0"
+    },
+    {
+        "path": "/media/posts/4/kvartira-termos.jpg",
+        "type": "file",
+        "md5": "cbd77a095191825e7ff0bc52aa5eb968"
+    },
+    {
+        "path": "media/posts/4/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/4/responsive/3_shaga_k_luchshemu_vozduhu-md.jpg",
+        "type": "file",
+        "md5": "b52c17bc8c2a7d0254931a70fc25c1f7"
+    },
+    {
+        "path": "/media/posts/4/responsive/3_shaga_k_luchshemu_vozduhu-sm.jpg",
+        "type": "file",
+        "md5": "53071366755d6139423dc0782bf2b991"
+    },
+    {
+        "path": "/media/posts/4/responsive/3_shaga_k_luchshemu_vozduhu-xl.jpg",
+        "type": "file",
+        "md5": "fca7b3c03101aeb19b2435524fef1fc9"
+    },
+    {
+        "path": "/media/posts/4/responsive/3_shaga_k_luchshemu_vozduhu-xs.jpg",
+        "type": "file",
+        "md5": "11bded7f1cb47f900b8143d2c9c4662a"
+    },
+    {
+        "path": "/media/posts/4/responsive/infografika_co2-md.jpg",
+        "type": "file",
+        "md5": "c96322abe854926ac64c7b3e623322b2"
+    },
+    {
+        "path": "/media/posts/4/responsive/infografika_co2-sm.jpg",
+        "type": "file",
+        "md5": "648f3750c523fd819f032046b965f11c"
+    },
+    {
+        "path": "/media/posts/4/responsive/infografika_co2-xl.jpg",
+        "type": "file",
+        "md5": "c96322abe854926ac64c7b3e623322b2"
+    },
+    {
+        "path": "/media/posts/4/responsive/infografika_co2-xs.jpg",
+        "type": "file",
+        "md5": "3cfa3e805d3b91b337a48149ef4fd34e"
+    },
+    {
+        "path": "/media/posts/4/responsive/kvartira-termos-md.jpg",
+        "type": "file",
+        "md5": "0ed39db0f8e56a3bebb2dfb48ca94063"
+    },
+    {
+        "path": "/media/posts/4/responsive/kvartira-termos-sm.jpg",
+        "type": "file",
+        "md5": "f1d9ce6ad1b98855194a8d3e9e47611f"
+    },
+    {
+        "path": "/media/posts/4/responsive/kvartira-termos-xl.jpg",
+        "type": "file",
+        "md5": "ccefeb3f4535c84a145198f421238b37"
+    },
+    {
+        "path": "/media/posts/4/responsive/kvartira-termos-xs.jpg",
+        "type": "file",
+        "md5": "8565b1452335ff7c374476f91d91710c"
+    },
+    {
         "path": "media/website",
         "type": "directory",
         "md5": false
@@ -335,6 +420,11 @@
         "md5": "2a041c818b4f5f76d554684629483c17"
     },
     {
+        "path": "otdali-milliony-za-tishinu-i-teplo-a-poluchili-gazovuyu-kameru.html",
+        "type": "file",
+        "md5": "5cfe63c881220c9a74b2c88a7d2fc069"
+    },
+    {
         "path": "robots.txt",
         "type": "file",
         "md5": "d8909cb936ddc69d8a6f0d2ba0c514e4"
@@ -342,7 +432,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "ed6d5eaf3b12f1589994206d77640d77"
+        "md5": "948e016a62d2f53683059b05662d41a7"
     },
     {
         "path": "sitemap.xsl",
@@ -362,16 +452,16 @@
     {
         "path": "/tags/blog/index.html",
         "type": "file",
-        "md5": "7b4f89cdb5f6521cc51ba4cb0478fb85"
+        "md5": "3bc42b72f02746672a67884f3c2c9bbf"
     },
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "69a397446c81b0d3c66b73e5d69f2cfb"
+        "md5": "6228ec2beaa876fa1c3c253c557eca55"
     },
     {
         "path": "zapah-novogo-remonta-pochemu-aromat-svezhey-kvartiry-v-novostroykah-spb-toksichen.html",
         "type": "file",
-        "md5": "c86483c2782558fe4d7c45e3a1d959db"
+        "md5": "dbe0fee95e1ecdc7e29172d1a66522f0"
     }
 ]
