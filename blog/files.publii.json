@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "a70d50ae1dcdc530c3349f2a6c7020e0"
+        "md5": "daa8eaf0873580d475104ebed4c3c880"
     },
     {
         "path": "assets",
@@ -97,37 +97,37 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/index.html",
         "type": "file",
-        "md5": "a4a32d2ea3e938688c2f503c3906c2d2"
+        "md5": "d864145d5119afa5523dc70b9e2bc279"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "0d1a668c962447ce80448aa16d1477c0"
+        "md5": "3d6221cc5aa4361cb59f9e4e5b6de372"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "7030088eb41f87848c325087a5e027e0"
+        "md5": "f2b4cd65c0007148da6ef34a9c1abe8f"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "336c78eae03ef5a7ba1dc47f6598c89e"
+        "md5": "ab61f11dcd9db3334b4c22dc014b165a"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka.html",
         "type": "file",
-        "md5": "80063e742c943966739946d3d7984437"
+        "md5": "c43f60f296cef0fb2eddd12f1ac2c4ac"
     },
     {
         "path": "kak-proverit-ventilyaciyu-v-detskoy-za-5-minut-bez-priborov.html",
         "type": "file",
-        "md5": "931aeb33f53b2b5d7834ad6ce334e07a"
+        "md5": "539ba80c3696daf3ad1cfcac7b3d23f5"
     },
     {
         "path": "kontakty.html",
         "type": "file",
-        "md5": "e0f61b0c595210fb2d0279b45969260f"
+        "md5": "8f446b5f8986c1eb6ab1227b91c7a535"
     },
     {
         "path": "media",
@@ -637,7 +637,7 @@
     {
         "path": "otdali-milliony-za-tishinu-i-teplo-a-poluchili-gazovuyu-kameru.html",
         "type": "file",
-        "md5": "1b6ac501d80b7e692d7e367da5fedc99"
+        "md5": "5d55976b8568da8d26e5f9a2424c3d71"
     },
     {
         "path": "robots.txt",
@@ -647,7 +647,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "ccde345a5b02c107d7d32143a98816b1"
+        "md5": "9ebe411ec10fb2adf0268593bae3885c"
     },
     {
         "path": "sitemap.xsl",
@@ -667,21 +667,31 @@
     {
         "path": "/tags/blog/index.html",
         "type": "file",
-        "md5": "9a0edf9046e3d90675ac9bb91ac25677"
+        "md5": "24486d8b98d74a4999ffe5fb4e3ebcd7"
     },
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "4e987c2a70b623014b2fe24c4b05eadc"
+        "md5": "5e1708038d9ef0c452a715aacba8f8b6"
+    },
+    {
+        "path": "tags/issledovaniya",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/tags/issledovaniya/index.html",
+        "type": "file",
+        "md5": "0e66bfee44e16fb18dab361a1f667a42"
     },
     {
         "path": "toshnota-i-beskonechnyy-nasmork-u-rebenka-chto-pryachut-mebelshchiki-pod-sloem-dorogoy-emali.html",
         "type": "file",
-        "md5": "9ffdd367ad8a7a51f80e0558e21aabb3"
+        "md5": "42995246f791f76e5a86d351fd9f47f8"
     },
     {
         "path": "zapah-novogo-remonta-pochemu-aromat-svezhey-kvartiry-v-novostroykah-spb-toksichen.html",
         "type": "file",
-        "md5": "79e03d4b5e1902cd6ff49c63ddc8bac7"
+        "md5": "4b9ccb6cabfaa580480aeecfa65e5184"
     }
 ]
