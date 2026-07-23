@@ -102,12 +102,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "3d6221cc5aa4361cb59f9e4e5b6de372"
+        "md5": "dc9d8c7b1c75b0053ff5ec84dc2a8506"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "f2b4cd65c0007148da6ef34a9c1abe8f"
+        "md5": "b588abbd0fdfd836c90b97aa4de29afa"
     },
     {
         "path": "index.html",
@@ -117,7 +117,7 @@
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka.html",
         "type": "file",
-        "md5": "c43f60f296cef0fb2eddd12f1ac2c4ac"
+        "md5": "46d08ffa10178dd18231a19f797ca7b7"
     },
     {
         "path": "kak-proverit-ventilyaciyu-v-detskoy-za-5-minut-bez-priborov.html",
@@ -647,7 +647,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "9ebe411ec10fb2adf0268593bae3885c"
+        "md5": "ca72b5d89a3046b37adfb0cb499610e4"
     },
     {
         "path": "sitemap.xsl",
