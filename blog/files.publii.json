@@ -102,12 +102,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "a441531c0dcac1d62e9958d9dafea95d"
+        "md5": "851995a505c2133e1e1b9ca74b066409"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "0674d0f91bba3d48ad857edfb7ed9f66"
+        "md5": "ed8409af922d2364c741ca2acd817219"
     },
     {
         "path": "index.html",
@@ -117,7 +117,7 @@
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka-2.html",
         "type": "file",
-        "md5": "84f8d05363fd8aecd8e4102dae3340bc"
+        "md5": "90dcea00be0eb1e2fb409316ec7127d1"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka.html",
@@ -687,7 +687,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "05790770ed2d2ab561b2450ff97cc423"
+        "md5": "343e6b1a44d6dda1110a2ded7f3b2d3a"
     },
     {
         "path": "sitemap.xsl",
