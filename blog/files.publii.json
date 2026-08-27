@@ -117,12 +117,12 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "8a51d6f57e818cb9b80e6ebf8b930a48"
+        "md5": "0d6d464774a32d42d2b94a5668603ae0"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "c01aa1fd9d43b64a52920c33c8baf240"
+        "md5": "a875e029a4c0ba2dc10b1b2e10c23a1a"
     },
     {
         "path": "index.html",
@@ -147,7 +147,7 @@
     {
         "path": "issledovanie-airzamer-zapertyy-dom-kak-vasha-kvartira-v-sankt-peterburge-mozhet-byt-opasnee-promyshlennogo-ceha.html",
         "type": "file",
-        "md5": "f6f9220dfb40d39440c9a5cd9339f947"
+        "md5": "e0fc7803f57ba5205f80b6df78671324"
     },
     {
         "path": "issledovanie-airzamer.html",
@@ -837,7 +837,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "caa07910d6c8d4b285054f38fda16cf2"
+        "md5": "354931ba6d2db989dcb2aa92a027d56f"
     },
     {
         "path": "sitemap.xsl",
