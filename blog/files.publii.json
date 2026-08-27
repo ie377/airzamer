@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "4b1d8137594cafcbde8e7f2110ad2232"
+        "md5": "693cfa3ac12cd8a5afed0d7aafee3d60"
     },
     {
         "path": "assets",
@@ -97,7 +97,7 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/index.html",
         "type": "file",
-        "md5": "ff3c12ca01ba6cd12ce7ee674909bc81"
+        "md5": "fdc5c7334096df096b3c02284b3cde41"
     },
     {
         "path": "authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/page",
@@ -112,52 +112,57 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/page/2/index.html",
         "type": "file",
-        "md5": "73cd79e5ef992a1c40ff5ed8cb106464"
+        "md5": "8641db9e81550aba6ee27a53c9c29a3f"
     },
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "aac6c4958a798b176dba2aee28cfdcb3"
+        "md5": "8a51d6f57e818cb9b80e6ebf8b930a48"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "c69c66b2e5864f05c7f7a42a3576f2b4"
+        "md5": "c01aa1fd9d43b64a52920c33c8baf240"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "eaa98d213438f3847863002e1876491a"
+        "md5": "cf859208a569e488c82a6adb1b79e813"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka-2.html",
         "type": "file",
-        "md5": "eff7e95b24cb5a81a24a656a4282d4f0"
+        "md5": "ceb4c6a3809478af0db6e259144f0d4e"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka-3.html",
         "type": "file",
-        "md5": "85ef77dff7af1bd166c4eab873a237ac"
+        "md5": "311318fb16554393e3b86b864be74861"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka.html",
         "type": "file",
-        "md5": "ce1ec2093cf8444eaf27bdc0ecbd47df"
+        "md5": "4bda79a2cff738d5e7c9d562cfb1827b"
+    },
+    {
+        "path": "issledovanie-airzamer-zapertyy-dom-kak-vasha-kvartira-v-sankt-peterburge-mozhet-byt-opasnee-promyshlennogo-ceha.html",
+        "type": "file",
+        "md5": "f6f9220dfb40d39440c9a5cd9339f947"
     },
     {
         "path": "issledovanie-airzamer.html",
         "type": "file",
-        "md5": "90e41a24ad6202d1a519a608b749d4eb"
+        "md5": "f080b0a053ebb368aed35906a8172abb"
     },
     {
         "path": "kak-proverit-ventilyaciyu-v-detskoy-za-5-minut-bez-priborov.html",
         "type": "file",
-        "md5": "dba52a6e8ff15cc1ef2fc25b2167c2ac"
+        "md5": "1acdb3a88e332ee0bf063a67cb6295fa"
     },
     {
         "path": "kontakty.html",
         "type": "file",
-        "md5": "0450d4ff15e0c20bd82c98826e5a3516"
+        "md5": "697bb13e626d8c20abdebeea5b310b73"
     },
     {
         "path": "media",
@@ -203,6 +208,41 @@
         "path": "/media/posts/10/responsive/rasmeshenie-datchikov-xs.jpeg",
         "type": "file",
         "md5": "7a4f29a9e5126a3ad7f28b51fe67b569"
+    },
+    {
+        "path": "media/posts/11",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "media/posts/11/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/11/responsive/zapertyi-dom-md.jpeg",
+        "type": "file",
+        "md5": "668c8b72f4bafa4728b058962a400bfa"
+    },
+    {
+        "path": "/media/posts/11/responsive/zapertyi-dom-sm.jpeg",
+        "type": "file",
+        "md5": "e25896cd69c974884a6e07e143db0e58"
+    },
+    {
+        "path": "/media/posts/11/responsive/zapertyi-dom-xl.jpeg",
+        "type": "file",
+        "md5": "668c8b72f4bafa4728b058962a400bfa"
+    },
+    {
+        "path": "/media/posts/11/responsive/zapertyi-dom-xs.jpeg",
+        "type": "file",
+        "md5": "f769a70fb9f33c485b3ac70d5355a5e4"
+    },
+    {
+        "path": "/media/posts/11/zapertyi-dom.jpeg",
+        "type": "file",
+        "md5": "f16e4257fe36036ffec13b752c133fec"
     },
     {
         "path": "media/posts/2",
@@ -772,7 +812,7 @@
     {
         "path": "otdali-milliony-za-tishinu-i-teplo-a-poluchili-gazovuyu-kameru.html",
         "type": "file",
-        "md5": "dac47aaaed65fa8da7da9a2cad5e5209"
+        "md5": "24ddbc056ce06131755e769a3a64fd67"
     },
     {
         "path": "page",
@@ -787,7 +827,7 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "fbbdfc128bcee487977d732ce43fa5de"
+        "md5": "20ae8143830f4a2edae8eae6ec239931"
     },
     {
         "path": "robots.txt",
@@ -797,7 +837,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "39e9d464c074ac50369c620e1e233e68"
+        "md5": "caa07910d6c8d4b285054f38fda16cf2"
     },
     {
         "path": "sitemap.xsl",
@@ -817,12 +857,12 @@
     {
         "path": "/tags/blog/index.html",
         "type": "file",
-        "md5": "14c351572004652deb9c731a9e9794e0"
+        "md5": "a036643ef18428147319a082cefb0127"
     },
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "f4e39490b5de56a2c644e10a4e710ca1"
+        "md5": "17f85ce828e4caf47fe64e8cfde4093b"
     },
     {
         "path": "tags/issledovaniya",
@@ -832,16 +872,16 @@
     {
         "path": "/tags/issledovaniya/index.html",
         "type": "file",
-        "md5": "a3bdbed7d93b5a5487fabdae10d3fd3c"
+        "md5": "b8bd60e2a5eea6fe177b770ad9194f3c"
     },
     {
         "path": "toshnota-i-beskonechnyy-nasmork-u-rebenka-chto-pryachut-mebelshchiki-pod-sloem-dorogoy-emali.html",
         "type": "file",
-        "md5": "fe00d14fa9590bfcb4e289e28ae01351"
+        "md5": "2fda8a93a35faba3db562346ee13b631"
     },
     {
         "path": "zapah-novogo-remonta-pochemu-aromat-svezhey-kvartiry-v-novostroykah-spb-toksichen.html",
         "type": "file",
-        "md5": "e4a4a5fec4f0c7f976caad9c7a9f7f7f"
+        "md5": "d807eede1b1211128c616ebb64b70f2e"
     }
 ]
