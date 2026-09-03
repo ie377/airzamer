@@ -97,7 +97,7 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/index.html",
         "type": "file",
-        "md5": "c933943589967871f1c3c1e4217b818d"
+        "md5": "1e9013bc0a0cced7b0e02c8a90d35cc1"
     },
     {
         "path": "authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/page",
@@ -117,22 +117,22 @@
     {
         "path": "feed.json",
         "type": "file",
-        "md5": "44f4e846330e72177253dc5e1dcc4d21"
+        "md5": "8d095ae67d14ec9b5ac6e5d27e05dcf4"
     },
     {
         "path": "feed.xml",
         "type": "file",
-        "md5": "d2ca231284b07308f182e489b0cfe33e"
+        "md5": "f8af56e60b3c471cd6f20fcb94decf28"
     },
     {
         "path": "index.html",
         "type": "file",
-        "md5": "885f92b8070b5009f09e72ca8ca7f92c"
+        "md5": "63d8434531418f4a97fc23ba069e152b"
     },
     {
         "path": "issledovanie-airzamer-7-privychek-portyashchih-vozduh-v-kvartire-i-kak-ispravit-situaciyu.html",
         "type": "file",
-        "md5": "17425c2fd13c8499019fd050da60df64"
+        "md5": "cbd4c70a2ffef7b69be519a125d96282"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka-2.html",
@@ -248,6 +248,41 @@
         "path": "/media/posts/11/zapertyi-dom.jpeg",
         "type": "file",
         "md5": "f16e4257fe36036ffec13b752c133fec"
+    },
+    {
+        "path": "media/posts/12",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/12/airzamer-7-privychek.jpeg",
+        "type": "file",
+        "md5": "7be8a76a4141735741965da122c28bae"
+    },
+    {
+        "path": "media/posts/12/responsive",
+        "type": "directory",
+        "md5": false
+    },
+    {
+        "path": "/media/posts/12/responsive/airzamer-7-privychek-md.jpeg",
+        "type": "file",
+        "md5": "1aad4503396e476d980c0be3eebaf7a3"
+    },
+    {
+        "path": "/media/posts/12/responsive/airzamer-7-privychek-sm.jpeg",
+        "type": "file",
+        "md5": "7e4c82ce5ff07decf6e0ac7569878094"
+    },
+    {
+        "path": "/media/posts/12/responsive/airzamer-7-privychek-xl.jpeg",
+        "type": "file",
+        "md5": "80b89a5a905497048e8d66fe709e47f8"
+    },
+    {
+        "path": "/media/posts/12/responsive/airzamer-7-privychek-xs.jpeg",
+        "type": "file",
+        "md5": "7fc1830a2eba2dbc3a7c9e8f7e83e953"
     },
     {
         "path": "media/posts/2",
@@ -842,7 +877,7 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "7c0ee96c8efbad89d52b81a941bfac5b"
+        "md5": "6f092c28caa28f0a3b37647531557faf"
     },
     {
         "path": "sitemap.xsl",
@@ -862,7 +897,7 @@
     {
         "path": "/tags/blog/index.html",
         "type": "file",
-        "md5": "98b4a991f48930db3e06e01d47a28bf5"
+        "md5": "357635574b991181216283c831c763f9"
     },
     {
         "path": "/tags/index.html",
@@ -877,7 +912,7 @@
     {
         "path": "/tags/issledovaniya/index.html",
         "type": "file",
-        "md5": "49ebb8f8701d1d34365ee78c24a70479"
+        "md5": "358462a7d570bb2c805302ea7e3c03c8"
     },
     {
         "path": "toshnota-i-beskonechnyy-nasmork-u-rebenka-chto-pryachut-mebelshchiki-pod-sloem-dorogoy-emali.html",
