@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -18,6 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Air Замер | Проверка качества воздуха в Санкт-Петербурге</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Яндекс Формы: скрипт автоподбора высоты iframe -->
+    <script src="https://forms.yandex.ru/_static/embed.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -32,8 +35,8 @@
             transition: all 0.3s ease;
         }
         
-        /* Стили формы Formspree */
-        #formspree__modal {
+        /* Стили модального окна с формой */
+        #leadModal {
             display: none;
             position: fixed;
             z-index: 1000;
@@ -46,10 +49,10 @@
             justify-content: center;
             backdrop-filter: blur(4px);
         }
-        #formspree__modal.visible {
+        #leadModal.visible {
             display: flex;
         }
-        #formspree__widget {
+        #leadWidget {
             background: white;
             padding: 2.5rem;
             border-radius: 1.5rem;
@@ -170,6 +173,42 @@
             align-items: center;
             justify-content: center;
         }
+
+        /* ============================================================
+           Яндекс Формы: обёртка iframe и правовая подпись
+           ============================================================ */
+        .ya-frame-wrap {
+            width: 100%;
+            max-height: min(70vh, 720px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            background: #fff;
+            border-radius: 12px;
+        }
+        .ya-frame {
+            display: block;
+            width: 100%;
+            min-height: 460px;
+            border: 0;
+        }
+        .ya-legal {
+            font-size: 11.5px;
+            line-height: 1.55;
+            color: #64748b;
+            margin-top: 14px;
+            text-align: left;
+        }
+        .ya-legal a { color: #059669; text-decoration: underline; }
+        /* Даём форме больше места внутри модальных окон */
+        #orderModal > div {
+            max-width: 34rem;
+            width: 100%;
+            padding: 1.75rem 1.25rem;
+            max-height: 92vh;
+            overflow-y: auto;
+        }
+        #leadModal .fs-body { margin: 0 -0.75rem; }
+        #leadWidget { padding: 1.5rem 1.25rem; }
     </style>
 </head>
 <body class="text-slate-800 bg-white">
@@ -506,58 +545,24 @@
             
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Оформление заявки</h2>
             
-            <form id="contactForm" action="https://formspree.io/f/movgnzzk" method="POST" style="max-width:500px; margin:0 auto; padding:20px; background:#fff; border:1px solid #e2e8f0; border-radius:8px; color:#0f172a;">
-    <div style="margin-bottom:15px;">
-        <label for="name" style="display:block; font-weight:bold; margin-bottom:5px; color:#0f172a;">Ваше имя *</label>
-        <input type="text" id="name" name="name" required placeholder="Иван Иванов" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:4px; box-sizing:border-box; background:#f8fafc; color:#0f172a;">
-    </div>
-    <div style="margin-bottom:15px;">
-        <label for="phone" style="display:block; font-weight:bold; margin-bottom:5px; color:#0f172a;">Телефон *</label>
-        <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:4px; box-sizing:border-box; background:#f8fafc; color:#0f172a;">
-    </div>
-    <div style="margin-bottom:15px;">
-        <label for="message" style="display:block; font-weight:bold; margin-bottom:5px; color:#0f172a;">Сообщение *</label>
-        <textarea id="message" name="message" required rows="4" placeholder="Введите ваше сообщение..." style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:4px; box-sizing:border-box; background:#f8fafc; color:#0f172a;"></textarea>
-    </div>
-    <input type="hidden" name="_captcha" value="true">
-    <button type="submit" style="background:#00ad85; color:#fff; padding:10px 25px; border:none; border-radius:4px; font-size:16px; cursor:pointer;">Отправить</button>
-    <p id="formStatus" style="font-size:12px; color:#64748b; margin-top:10px;">Поля, помеченные *, обязательны для заполнения.</p>
-</form>
-
-<script>
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const status = document.getElementById('formStatus');
-    const btn = this.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
-
-    btn.disabled = true;
-    btn.textContent = 'Отправка...';
-    status.textContent = '';
-
-    try {
-        const response = await fetch(this.action, {
-            method: 'POST',
-            body: new FormData(this),
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            this.reset();
-            window.location.href = 'https://airzamer.ru/blog/spasibo.html'; // Редирект после успешной отправки
-        } else {
-            status.style.color = '#ff6b6b';
-            status.textContent = 'Ошибка отправки. Попробуйте позже.';
-        }
-    } catch (err) {
-        status.style.color = '#ff6b6b';
-        status.textContent = 'Ошибка соединения. Проверьте интернет.';
-    } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
-    }
-});
-</script>
+            <!-- Яндекс Формы: данные обрабатываются на серверах Яндекса в РФ -->
+            <div class="ya-frame-wrap">
+                <iframe id="yaFormOrder" class="ya-frame"
+                        src="https://forms.yandex.ru/u/6ace31f21f1eb580f7000309/?iframe=1&amp;theme=light"
+                        name="ya-form-6ace31f21f1eb580f7000309"
+                        width="100%" height="640" frameborder="0"
+                        title="Форма заявки на замер воздуха"></iframe>
+            </div>
+            <p class="ya-legal">
+                Заполняя форму, вы даёте согласие на обработку персональных данных
+                (имя, телефон, содержание обращения) в целях обработки заявки и подготовки
+                ответа. Обработка ведётся на территории Российской Федерации с привлечением
+                сервиса «Яндекс Формы» (ООО «Яндекс»).
+                <a href="/politika.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+                &nbsp;·&nbsp;
+                <a href="/soglasie.html" target="_blank" rel="noopener">Текст согласия</a>.
+                Отозвать согласие: <a href="mailto:info@airzamer.ru">info@airzamer.ru</a>.
+            </p>
         </div>
     </div>
 </div>
@@ -616,7 +621,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
         }
 
         openModalBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
-        closeModalBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+        closeModalBtn.addEventListener('click', () => { modal.style.display = 'none'; const f = document.getElementById('yaFormOrder'); if (f) { f.src = f.src; } });
         window.addEventListener('click', (event) => { if (event.target == modal) modal.style.display = 'none'; });
 
         roomsSlider.addEventListener('input', calculateTariff);
@@ -1587,15 +1592,16 @@ document.getElementById('contactForm').addEventListener('submit', async function
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-slate-500 text-xs font-bold uppercase tracking-widest">
                 <p>© 2026 AIRZAMER.RU (Замер воздуха, англ.) — ВСЕ ПРАВА ЗАЩИЩЕНЫ</p>
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-emerald-600 transition">Политика конфиденциальности</a>
+                    <a href="/politika.html" class="hover:text-emerald-600 transition">Политика обработки персональных данных</a>
+                    <a href="/soglasie.html" class="hover:text-emerald-600 transition">Согласие на обработку ПДн</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Formspree Popup Widget -->
-    <div id="formspree__modal">
-        <div id="formspree__widget"> 
+    <!-- Модальное окно с формой заявки -->
+    <div id="leadModal">
+        <div id="leadWidget"> 
             <div class="fs-header">
                 Быстрый заказ замера
                 <button onclick="toggleModal(false)" class="fs-close-btn" aria-label="Закрыть форму">
@@ -1603,77 +1609,53 @@ document.getElementById('contactForm').addEventListener('submit', async function
                 </button>
             </div>
             <div class="fs-body"> 
-                <form id="contactForm2" action="https://formspree.io/f/movgnzzk" method="POST" style="max-width:500px; margin:0 auto; padding:20px; background:#fff; border:1px solid #e2e8f0; border-radius:8px; color:#0f172a;">
-    <div style="margin-bottom:15px;">
-        <label for="name2" style="display:block; font-weight:bold; margin-bottom:5px; color:#0f172a;">Ваше имя *</label>
-        <input type="text" id="name2" name="name" required placeholder="Иван Иванов" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:4px; box-sizing:border-box; background:#f8fafc; color:#0f172a;">
-    </div>
-    <div style="margin-bottom:15px;">
-        <label for="phone2" style="display:block; font-weight:bold; margin-bottom:5px; color:#0f172a;">Телефон *</label>
-        <input type="tel" id="phone2" name="phone" required placeholder="+7 (999) 123-45-67" style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:4px; box-sizing:border-box; background:#f8fafc; color:#0f172a;">
-    </div>
-    <div style="margin-bottom:15px;">
-        <label for="message2" style="display:block; font-weight:bold; margin-bottom:5px; color:#0f172a;">Сообщение *</label>
-        <textarea id="message2" name="message" required rows="4" placeholder="Введите ваше сообщение..." style="width:100%; padding:8px; border:1px solid #cbd5e1; border-radius:4px; box-sizing:border-box; background:#f8fafc; color:#0f172a;"></textarea>
-    </div>
-    <input type="hidden" name="_captcha" value="true">
-    <button type="submit" style="background:#00ad85; color:#fff; padding:10px 25px; border:none; border-radius:4px; font-size:16px; cursor:pointer;">Отправить</button>
-    <p id="formStatus2" style="font-size:12px; color:#64748b; margin-top:10px;">Поля, помеченные *, обязательны для заполнения.</p>
-</form>
+                <!-- Яндекс Формы: данные обрабатываются на серверах Яндекса в РФ -->
+            <div class="ya-frame-wrap">
+                <iframe id="yaFormPopup" class="ya-frame"
+                        src="https://forms.yandex.ru/u/6ace31f21f1eb580f7000309/?iframe=1&amp;theme=light"
+                        name="ya-form-6ace31f21f1eb580f7000309"
+                        width="100%" height="640" frameborder="0"
+                        title="Форма быстрого заказа замера"></iframe>
+            </div>
+            <p class="ya-legal">
+                Заполняя форму, вы даёте согласие на обработку персональных данных
+                (имя, телефон, содержание обращения) в целях обработки заявки и подготовки
+                ответа. Обработка ведётся на территории Российской Федерации с привлечением
+                сервиса «Яндекс Формы» (ООО «Яндекс»).
+                <a href="/politika.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+                &nbsp;·&nbsp;
+                <a href="/soglasie.html" target="_blank" rel="noopener">Текст согласия</a>.
+                Отозвать согласие: <a href="mailto:info@airzamer.ru">info@airzamer.ru</a>.
+            </p>
             </div>
         </div>
     </div>
 
-    <script>
-        const modal = document.getElementById('formspree__modal');
-        const form = document.getElementById('contactForm2');
+        <script>
+        // Модальное окно с формой Яндекс Форм.
+        // Имя переменной намеренно уникальное: toggleModal вызывается из onclick
+        // в разметке, поэтому функция обязана оставаться глобальной.
+        const leadModalEl = document.getElementById('leadModal');
+
+        function resetFrame(id) {
+            const f = document.getElementById(id);
+            // перезагружаем iframe, чтобы следующий посетитель увидел чистую форму
+            if (f) { f.src = f.src; }
+        }
 
         function toggleModal(show) {
             if (show) {
-                modal.classList.add('visible');
+                leadModalEl.classList.add('visible');
                 document.body.style.overflow = 'hidden';
             } else {
-                modal.classList.remove('visible');
+                leadModalEl.classList.remove('visible');
                 document.body.style.overflow = 'auto';
-                form.reset();
+                resetFrame('yaFormPopup');
             }
         }
 
-        modal.addEventListener('click', (event) => {
-            if (event.target === modal) toggleModal(false);
-        });
-
-        document.getElementById('contactForm2').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const status = document.getElementById('formStatus2');
-            const btn = this.querySelector('button[type="submit"]');
-            const originalText = btn.textContent;
-
-            btn.disabled = true;
-            btn.textContent = 'Отправка...';
-            status.textContent = '';
-
-            try {
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: new FormData(this),
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    this.reset();
-                    window.location.href = 'https://airzamer.ru/blog/spasibo.html'; // Редирект после успешной отправки
-                } else {
-                    status.style.color = '#ff6b6b';
-                    status.textContent = 'Ошибка отправки. Попробуйте позже.';
-                }
-            } catch (err) {
-                status.style.color = '#ff6b6b';
-                status.textContent = 'Ошибка соединения. Проверьте интернет.';
-            } finally {
-                btn.disabled = false;
-                btn.textContent = originalText;
-            }
+        leadModalEl.addEventListener('click', (event) => {
+            if (event.target === leadModalEl) toggleModal(false);
         });
     </script>
 </body>
