@@ -2,7 +2,7 @@
     {
         "path": "404.html",
         "type": "file",
-        "md5": "371fa2f01a40270049dec01d41930bd1"
+        "md5": "3689c49084a5cfca771e5ea6fc3319f2"
     },
     {
         "path": "assets",
@@ -97,7 +97,7 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/index.html",
         "type": "file",
-        "md5": "54ee0b28d2d9190b34d5756379a23cbd"
+        "md5": "d4180b18d12f20084ac3ecb13e8e26e4"
     },
     {
         "path": "authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/page",
@@ -112,7 +112,7 @@
     {
         "path": "/authors/chem-vy-dyshite-eko-audit-v-sankt-peterburge-s-podrobnymi-otchetami/page/2/index.html",
         "type": "file",
-        "md5": "ec7ca9129eb99f157bd16bcd488e54d4"
+        "md5": "b0a636d5a53782437947adcc8db81b00"
     },
     {
         "path": "feed.json",
@@ -127,47 +127,47 @@
     {
         "path": "index.html",
         "type": "file",
-        "md5": "83d3cf081dedf8aba2dc943faa75df25"
+        "md5": "d84991752e535fead5e0019c0cf236d6"
     },
     {
         "path": "issledovanie-airzamer-7-privychek-portyashchih-vozduh-v-kvartire-i-kak-ispravit-situaciyu.html",
         "type": "file",
-        "md5": "c1404d386bf0a0d3404036b472d703b8"
+        "md5": "f23505b1d54516060b8eb1da8afaa785"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka-2.html",
         "type": "file",
-        "md5": "422ed244977b172b3d858b6fc6b52ca4"
+        "md5": "8228f2bcec0958368514a77ac8394f88"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka-3.html",
         "type": "file",
-        "md5": "c2c0bf976330d76dd8895b5ff920f0b1"
+        "md5": "8eba923c4926c9fb0ebbb0fae99a09a8"
     },
     {
         "path": "issledovanie-airzamer-kachestvo-sna-detey-shkolnogo-vozrasta-kak-uglekislyy-gaz-v-spalne-vliyaet-na-prodolzhitelnost-i-utrennyuyu-bodrost-rebyonka.html",
         "type": "file",
-        "md5": "940188276053e713677733c8fbc9d2da"
+        "md5": "4df5ab1b707cb4e7dbe32e63095057bd"
     },
     {
         "path": "issledovanie-airzamer-zapertyy-dom-kak-vasha-kvartira-v-sankt-peterburge-mozhet-byt-opasnee-promyshlennogo-ceha.html",
         "type": "file",
-        "md5": "4611bc6fd46ad4db3f9dd964579fb553"
+        "md5": "8e6868b5fe576293cee34438321cf53e"
     },
     {
         "path": "issledovanie-airzamer.html",
         "type": "file",
-        "md5": "d28b25706837035e4c350865be4f0239"
+        "md5": "76e46242a7acc2b527aabbdf248a7959"
     },
     {
         "path": "kak-proverit-ventilyaciyu-v-detskoy-za-5-minut-bez-priborov.html",
         "type": "file",
-        "md5": "514ba1e5e4cc2b1ffe610b866dc7836e"
+        "md5": "2ad9ee43115f5130e26393ba064fc94e"
     },
     {
         "path": "kontakty.html",
         "type": "file",
-        "md5": "588102da4cb717f8177d91a0eb70f4ba"
+        "md5": "4919c6c7176b6afab1c608cc1286d01a"
     },
     {
         "path": "media",
@@ -887,7 +887,7 @@
     {
         "path": "otdali-milliony-za-tishinu-i-teplo-a-poluchili-gazovuyu-kameru.html",
         "type": "file",
-        "md5": "feb999fb02030a0dcdbd3e0e4f9337f5"
+        "md5": "8a69ec1c6e7423ffa7526f075e10432a"
     },
     {
         "path": "page",
@@ -902,12 +902,12 @@
     {
         "path": "/page/2/index.html",
         "type": "file",
-        "md5": "bb5bbfe7e996a2183cbba7d392d78a04"
+        "md5": "154b94956fa1eb0e9200ddeb1c4798e4"
     },
     {
         "path": "pochemu-vash-datchik-vozduha-vam-vryot.html",
         "type": "file",
-        "md5": "bf7a2483451ed51ce9aeab6392fd89b0"
+        "md5": "d518a09a4716738d8b487ebc120a922f"
     },
     {
         "path": "robots.txt",
@@ -917,12 +917,17 @@
     {
         "path": "sitemap.xml",
         "type": "file",
-        "md5": "26662ef6fe6564bea79fc430682bcbff"
+        "md5": "07d8a4f4b4c8ecf1e0caa27910c8804d"
     },
     {
         "path": "sitemap.xsl",
         "type": "file",
         "md5": "51a7bcec43fa1ef0366100d5c2edbe75"
+    },
+    {
+        "path": "spasibo.html",
+        "type": "file",
+        "md5": "2a3369c6ed6aa13e0f2ce33c0405ce9a"
     },
     {
         "path": "tags",
@@ -937,12 +942,12 @@
     {
         "path": "/tags/blog/index.html",
         "type": "file",
-        "md5": "abc07a40fad3e18b823e054e9226b3e9"
+        "md5": "2b523800ebb93735a38460766b18008a"
     },
     {
         "path": "/tags/index.html",
         "type": "file",
-        "md5": "5b970f02904a0ff70b04cf6534f700d6"
+        "md5": "581d5ed1ffb97acd1c99a66e847ec4e5"
     },
     {
         "path": "tags/issledovaniya",
@@ -952,7 +957,7 @@
     {
         "path": "/tags/issledovaniya/index.html",
         "type": "file",
-        "md5": "cdf0228ae0b0abd9e1beb3f1e4977f13"
+        "md5": "6f7043b900e28930457d0c8c647e4c74"
     },
     {
         "path": "tags/video",
@@ -962,16 +967,16 @@
     {
         "path": "/tags/video/index.html",
         "type": "file",
-        "md5": "2c96695543d4e1514368908b02a40989"
+        "md5": "535111db5e9491ef8d73b24066689643"
     },
     {
         "path": "toshnota-i-beskonechnyy-nasmork-u-rebenka-chto-pryachut-mebelshchiki-pod-sloem-dorogoy-emali.html",
         "type": "file",
-        "md5": "bd79a6b9274c2f6268abb7266d3348cd"
+        "md5": "cbebaaa9964178b5093871dcc319a442"
     },
     {
         "path": "zapah-novogo-remonta-pochemu-aromat-svezhey-kvartiry-v-novostroykah-spb-toksichen.html",
         "type": "file",
-        "md5": "a516701a25218c3b0ccae9113f27828b"
+        "md5": "210021f3799d27aa5549cb9facae9971"
     }
 ]
