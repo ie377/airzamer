@@ -527,32 +527,58 @@
             
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Оформление заявки</h2>
             
-            <form action="https://formspree.io/f/movgnzzk" method="POST" class="space-y-4" id="orderForm">
-                <input type="hidden" name="Тариф" id="hiddenTariff">
-                <input type="hidden" name="Количество комнат" id="hiddenRooms">
-                <input type="hidden" name="Итоговая цена" id="hiddenPrice">
-                <input type="hidden" name="Район" id="hiddenLocation">
+            <form id="contactForm" action="https://formspree.io/f/movgnzzk" method="POST" style="max-width:500px; margin:0 auto; padding:20px; border:1px solid #555; border-radius:8px; color:#f0f0f0;">
+    <div style="margin-bottom:15px;">
+        <label for="name" style="display:block; font-weight:bold; margin-bottom:5px; color:#f0f0f0;">Ваше имя *</label>
+        <input type="text" id="name" name="name" required placeholder="Иван Иванов" style="width:100%; padding:8px; border:1px solid #666; border-radius:4px; box-sizing:border-box; background:#333; color:#fff;">
+    </div>
+    <div style="margin-bottom:15px;">
+        <label for="phone" style="display:block; font-weight:bold; margin-bottom:5px; color:#f0f0f0;">Телефон *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67" style="width:100%; padding:8px; border:1px solid #666; border-radius:4px; box-sizing:border-box; background:#333; color:#fff;">
+    </div>
+    <div style="margin-bottom:15px;">
+        <label for="message" style="display:block; font-weight:bold; margin-bottom:5px; color:#f0f0f0;">Сообщение *</label>
+        <textarea id="message" name="message" required rows="4" placeholder="Введите ваше сообщение..." style="width:100%; padding:8px; border:1px solid #666; border-radius:4px; box-sizing:border-box; background:#333; color:#fff;"></textarea>
+    </div>
+    <input type="hidden" name="_captcha" value="true">
+    <button type="submit" style="background:#00ad85; color:#fff; padding:10px 25px; border:none; border-radius:4px; font-size:16px; cursor:pointer;">Отправить</button>
+    <p id="formStatus" style="font-size:12px; color:#aaa; margin-top:10px;">Поля, помеченные *, обязательны для заполнения.</p>
+</form>
 
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Ваше имя</label>
-                    <input type="text" name="name" required class="w-full p-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Телефон</label>
-                    <input type="tel" name="phone" required class="w-full p-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" name="_replyto" required class="w-full p-3 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-green-500">
-                </div>
-                
-                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
-                
-                <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl transition-colors mt-4">
-                    Подтвердить и отправить
-                </button>
-                <p class="text-[10px] text-gray-400 text-center px-4">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности airzamer.ru</p>
-            </form>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const status = document.getElementById('formStatus');
+    const btn = this.querySelector('button[type="submit"]');
+    const originalText = btn.textContent;
+
+    btn.disabled = true;
+    btn.textContent = 'Отправка...';
+    status.textContent = '';
+
+    try {
+        const response = await fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            this.reset();
+            window.location.href = 'https://airzamer.ru/spasibo.html'; // Редирект после успешной отправки
+        } else {
+            status.style.color = '#ff6b6b';
+            status.textContent = 'Ошибка отправки. Попробуйте позже.';
+        }
+    } catch (err) {
+        status.style.color = '#ff6b6b';
+        status.textContent = 'Ошибка соединения. Проверьте интернет.';
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+    }
+});
+</script>
         </div>
     </div>
 </div>
@@ -1646,54 +1672,30 @@
                 </button>
             </div>
             <div class="fs-body"> 
-                <form id="fs_form" action="https://formspree.io/f/movgnzzk" method="POST" novalidate>
-                    <div class="fs-form-group" data-name="Заказ">
-                        <label for="fs_interest">Ваш запрос или адрес</label>
-                        <textarea
-                            name="Заказ"
-                            id="fs_interest"
-                            placeholder="Например: Замер тарифа Максимум, метро Пионерская"
-                            rows="4"
-                            required
-                        ></textarea>
-                        <div class="fs-error-message">Пожалуйста, опишите ваш запрос.</div>
-                    </div>
-                    <div class="fs-form-group" data-name="Контакт">
-                        <label for="fs_contact">Телефон</label>
-                        <input
-                            type="text"
-                            name="Контакт"
-                            id="fs_contact"
-                            placeholder="+7 (XXX) XXX-XX-XX"
-                            required
-                        />
-                        <div class="fs-error-message">Укажите контактный номер.</div>
-                    </div>
-                    <div class="fs-form-group">
-                        <label for="fs_email">Email</label>
-                        <input
-                            type="email"
-                            name="_replyto"
-                            id="fs_email"
-                            placeholder="example@mail.ru"
-                            required
-                        />
-                    </div>
-                    <input type="hidden" name="_subject" value="Новый заказ с AirZamer.ru" />
-                    <button type="submit" id="fs_submit_btn" class="fs-submit-btn">
-                        Отправить заявку
-                    </button>
-                    <p id="fs_result" class="text-slate-400 italic">Нажмите "Отправить", мы перезвоним через 5 минут.</p>
-                </form>
+                <form id="contactForm2" action="https://formspree.io/f/movgnzzk" method="POST" style="max-width:500px; margin:0 auto; padding:20px; border:1px solid #555; border-radius:8px; color:#f0f0f0;">
+    <div style="margin-bottom:15px;">
+        <label for="name2" style="display:block; font-weight:bold; margin-bottom:5px; color:#f0f0f0;">Ваше имя *</label>
+        <input type="text" id="name2" name="name" required placeholder="Иван Иванов" style="width:100%; padding:8px; border:1px solid #666; border-radius:4px; box-sizing:border-box; background:#333; color:#fff;">
+    </div>
+    <div style="margin-bottom:15px;">
+        <label for="phone2" style="display:block; font-weight:bold; margin-bottom:5px; color:#f0f0f0;">Телефон *</label>
+        <input type="tel" id="phone2" name="phone" required placeholder="+7 (999) 123-45-67" style="width:100%; padding:8px; border:1px solid #666; border-radius:4px; box-sizing:border-box; background:#333; color:#fff;">
+    </div>
+    <div style="margin-bottom:15px;">
+        <label for="message2" style="display:block; font-weight:bold; margin-bottom:5px; color:#f0f0f0;">Сообщение *</label>
+        <textarea id="message2" name="message" required rows="4" placeholder="Введите ваше сообщение..." style="width:100%; padding:8px; border:1px solid #666; border-radius:4px; box-sizing:border-box; background:#333; color:#fff;"></textarea>
+    </div>
+    <input type="hidden" name="_captcha" value="true">
+    <button type="submit" style="background:#00ad85; color:#fff; padding:10px 25px; border:none; border-radius:4px; font-size:16px; cursor:pointer;">Отправить</button>
+    <p id="formStatus2" style="font-size:12px; color:#aaa; margin-top:10px;">Поля, помеченные *, обязательны для заполнения.</p>
+</form>
             </div>
         </div>
     </div>
 
     <script>
         const modal = document.getElementById('formspree__modal');
-        const form = document.getElementById('fs_form');
-        const result = document.getElementById('fs_result');
-        const submitBtn = document.getElementById('fs_submit_btn');
+        const form = document.getElementById('contactForm2');
 
         function toggleModal(show) {
             if (show) {
@@ -1703,7 +1705,6 @@
                 modal.classList.remove('visible');
                 document.body.style.overflow = 'auto';
                 form.reset();
-                resetFormState();
             }
         }
 
@@ -1711,60 +1712,36 @@
             if (event.target === modal) toggleModal(false);
         });
 
-        function resetFormState() {
-            form.querySelectorAll('.fs-form-group').forEach(group => {
-                group.classList.remove('invalid');
-            });
-            result.textContent = 'Нажмите "Отправить", мы перезвоним через 5 минут.';
-            result.className = 'text-slate-400 italic';
-        }
+        document.getElementById('contactForm2').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const status = document.getElementById('formStatus2');
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
 
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            
-            let isValid = true;
-            const fields = form.querySelectorAll('[required]');
-            
-            fields.forEach(field => {
-                const group = field.closest('.fs-form-group');
-                if (!field.value.trim()) {
-                    group.classList.add('invalid');
-                    isValid = false;
-                } else {
-                    group.classList.remove('invalid');
-                }
-            });
-
-            if (!isValid) {
-                result.textContent = 'Заполните обязательные поля.';
-                result.className = 'fs-error';
-                return;
-            }
-
-            submitBtn.disabled = true;
-            result.textContent = 'Отправляем...';
+            btn.disabled = true;
+            btn.textContent = 'Отправка...';
+            status.textContent = '';
 
             try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
                     headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
-                    result.textContent = 'Спасибо! Заявка принята. Ожидайте звонка.';
-                    result.className = 'fs-success';
-                    form.reset();
-                    setTimeout(() => toggleModal(false), 3000); 
+                    this.reset();
+                    window.location.href = 'https://airzamer.ru/spasibo.html'; // Редирект после успешной отправки
                 } else {
-                    result.textContent = 'Ошибка. Попробуйте снова.';
-                    result.className = 'fs-error';
+                    status.style.color = '#ff6b6b';
+                    status.textContent = 'Ошибка отправки. Попробуйте позже.';
                 }
-            } catch (error) {
-                result.textContent = 'Сетевая ошибка.';
-                result.className = 'fs-error';
+            } catch (err) {
+                status.style.color = '#ff6b6b';
+                status.textContent = 'Ошибка соединения. Проверьте интернет.';
             } finally {
-                submitBtn.disabled = false;
+                btn.disabled = false;
+                btn.textContent = originalText;
             }
         });
     </script>
